@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<score:SContext xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:score="http://scoreabm.org/score" label="AutoSimmune" ID="AutoSimmune" pluralLabel="AutoSimmunes">
+  <attributes label="Evaporation Rate" ID="evaporationRate" pluralLabel="Evaporation Rates" sType="FLOAT" defaultValue="0.92"/>
+  <attributes label="Difusion Constant" ID="difusionConstant" pluralLabel="Difusion Constants" sType="FLOAT" defaultValue="0.5"/>
+  <attributes label="Tissue Width" ID="tissueWidth" pluralLabel="Tissue Widths" sType="INTEGER" defaultValue="150"/>
+  <attributes label="Tissue Height" ID="tissueHeight" pluralLabel="Tissue Heights" sType="INTEGER" defaultValue="150"/>
+  <attributes label="Dendritic Cells Count" ID="dendriticCellsCount" pluralLabel="Dendritic Cells Counts" sType="INTEGER" defaultValue="200"/>
+  <attributes label="Dendritic Self Pattern" ID="dendriticSelfPattern" pluralLabel="Dendritic Self Patterns" sType="STRING" defaultValue="00000000000000000011"/>
+  <attributes label="Antibody Lifetime" ID="antibodyLifetime" pluralLabel="Antibody Lifetimes" sType="INTEGER" defaultValue="350"/>
+  <attributes label="Virus Self Pattern" ID="virusSelfPattern" pluralLabel="Virus Self Patterns" sType="STRING" defaultValue="01010101010101010101"/>
+  <attributes label="Self Pattern Lenght" ID="selfPatternLenght" pluralLabel="Self Pattern Lenghts" sType="INTEGER" defaultValue="20"/>
+  <attributes label="Receptor Pattern Lenght" ID="receptorPatternLenght" pluralLabel="Receptor Pattern Lenghts" sType="INTEGER" defaultValue="5"/>
+  <attributes label="Affinity Threshold" ID="affinityThreshold" pluralLabel="Affinity Thresholds" sType="INTEGER" defaultValue="5"/>
+  <attributes label="Virus Target Pattern" ID="virusTargetPattern" pluralLabel="Virus Target Patterns" sType="STRING" defaultValue="00000000001111111111"/>
+  <attributes label="Virus Virulency" ID="virusVirulency" pluralLabel="Virus Virulencies" sType="INTEGER" defaultValue="1"/>
+  <attributes label="Virus Latency" ID="virusLatency" pluralLabel="Virus Latencies" sType="INTEGER" defaultValue="10"/>
+  <attributes label="Tissue Quarter" ID="tissueQuarter" pluralLabel="Tissue Quarters" sType="INTEGER" defaultValue="9"/>
+  <attributes label="PC Self Pattern" ID="pcSelfPattern" pluralLabel="PC Self Patterns" sType="STRING" defaultValue="00000000001111111111"/>
+  <attributes label="PC Stress Threshold" ID="pCStressThreshold" pluralLabel="PC Stress Thresholds" sType="INTEGER" defaultValue="5"/>
+  <attributes label="PC Stress Max Time" ID="pCStressMaxTime" pluralLabel="PC Stress Max Times" sType="INTEGER" defaultValue="25"/>
+  <attributes label="NK Self Pattern" ID="nKSelfPattern" pluralLabel="NK Self Patterns" description="" sType="STRING" defaultValue="00000111110000011111"/>
+  <attributes label="NK Kill Limit" ID="nKKillLimit" pluralLabel="NK Kill Limits" sType="INTEGER" defaultValue="2"/>
+  <attributes label="NK NoKill Timeout" ID="nKNoKillTimeout" pluralLabel="NK NoKill Timeouts" sType="INTEGER" defaultValue="20"/>
+  <attributes label="NK Lifetime" ID="nKLifetime" pluralLabel="NK Lifetimes" description="" sType="INTEGER" defaultValue="30" units="ticks"/>
+  <attributes label="NK CK1 Duration" ID="nKCK1Duration" pluralLabel="NK CK1 Durations" sType="INTEGER" defaultValue="10"/>
+  <attributes label="Th Self Pattern" ID="thSelfPattern" pluralLabel="Th Self Patterns" sType="STRING" defaultValue="11110000111100001111"/>
+  <attributes label="Th Lifetime" ID="thLifetime" pluralLabel="Th Lifetimes" sType="INTEGER" defaultValue="500"/>
+  <attributes label="Th CK1 Duration" ID="thCK1Duration" pluralLabel="Th CK1 Durations" sType="INTEGER" defaultValue="50"/>
+  <attributes label="Th Proliferation Count" ID="thProliferationCount" pluralLabel="Th Proliferation Counts" sType="INTEGER" defaultValue="20"/>
+  <attributes label="Th CK1 Memory Threshold" ID="thCK1MemoryThreshold" pluralLabel="Th CK1 Memory Thresholds" sType="INTEGER" defaultValue="1"/>
+  <attributes label="Th Memory Proliferation Count" ID="thMemoryProliferationCount" pluralLabel="Th Memory Proliferation Counts" sType="INTEGER" defaultValue="10"/>
+  <attributes label="CTL Self Pattern" ID="cTLSelfPattern" pluralLabel="CTL Self Patterns" sType="STRING" defaultValue="01010101010101010101"/>
+  <attributes label="CTL Tissue Lifetime" ID="cTLTissueLifetime" pluralLabel="CTL Tissue Lifetimes" sType="INTEGER" defaultValue="300"/>
+  <attributes label="CTL Lymphnode Lifetime" ID="cTLLymphnodeLifetime" pluralLabel="CTL Lymphnode Lifetimes" sType="INTEGER" defaultValue="500"/>
+  <attributes label="CTL Tissue CK1 Duration" ID="cTLTissueCK1Duration" pluralLabel="CTL Tissue CK1 Durations" sType="INTEGER" defaultValue="50"/>
+  <attributes label="CTL Lymphnode CK1 Duration" ID="cTLLymphnodeCK1Duration" pluralLabel="CTL Lymphnode CK1 Durations" sType="INTEGER" defaultValue="100"/>
+  <attributes label="CTL CK1 Memory Threshold" ID="cTLCK1MemoryThreshold" pluralLabel="CTL CK1 Memory Thresholds" sType="FLOAT" defaultValue="0.2"/>
+  <attributes label="CTL PK1 Memory Threshold" ID="cTLPK1MemoryThreshold" pluralLabel="CTL PK1 Memory Thresholds" sType="FLOAT" defaultValue="0.2"/>
+  <attributes label="CTL Proliferation Count" ID="cTLProliferationCount" pluralLabel="CTL Proliferation Counts" sType="INTEGER" defaultValue="40"/>
+  <attributes label="Dendritic Lymphnode Lifetime" ID="dendriticLymphnodeLifetime" pluralLabel="Dendritic Lymphnode Lifetimes" sType="INTEGER" defaultValue="200"/>
+  <attributes label="Dendritic PK1 Activation Threshold" ID="dendriticPK1ActivationThreshold" pluralLabel="Dendritic PK1 Activation Thresholds" sType="FLOAT" defaultValue="0.5"/>
+  <attributes label="Dendritic MK1 Activation Threshold" ID="dendriticMK1ActivationThreshold" pluralLabel="Dendritic MK1 Activation Thresholds" sType="FLOAT" defaultValue="0.5"/>
+  <attributes label="Dendritic Tissue MK1 Duration" ID="dendriticTissueMK1Duration" pluralLabel="Dendritic Tissue MK1 Durations" sType="INTEGER" defaultValue="30"/>
+  <attributes label="Dendritic Lymphnode MK1 Duration" ID="dendriticLymphnodeMK1Duration" pluralLabel="Dendritic Lymphnode MK1 Durations" sType="INTEGER" defaultValue="20"/>
+  <attributes label="Macrophage Self Pattern" ID="macrophageSelfPattern" pluralLabel="Macrophage Self Patterns" sType="STRING" defaultValue="00011100011100011100"/>
+  <attributes label="Macrophage Lifetime" ID="macrophageLifetime" pluralLabel="Macrophage Lifetimes" sType="INTEGER" defaultValue="20"/>
+  <attributes label="Macrophage MK1 Duration" ID="macrophageMK1Duration" pluralLabel="Macrophage MK1 Durations" sType="INTEGER" defaultValue="20"/>
+  <attributes label="BCell Self Pattern" ID="bCellSelfPattern" pluralLabel="BCell Self Patterns" sType="STRING" defaultValue="00110001110011000111"/>
+  <attributes label="BCell Germinal Probability" ID="bCellGerminalProbability" pluralLabel="BCell Germinal Probabilities" sType="INTEGER" defaultValue="60" units="%"/>
+  <attributes label="BCell MK1 Memory Threshold" ID="bCellMK1MemoryThreshold" pluralLabel="BCell MK1 Memory Thresholds" sType="FLOAT" defaultValue="0.02"/>
+  <attributes label="BCell CK1 Memory Threshold" ID="bCellCK1MemoryThreshold" pluralLabel="BCell CK1 Memory Thresholds" sType="FLOAT" defaultValue="0.02"/>
+  <attributes label="BCell Lifetime" ID="bCellLifetime" pluralLabel="BCell Lifetimes" sType="INTEGER" defaultValue="400"/>
+  <attributes label="BCell Antibody Count" ID="bCellAntibodyCount" pluralLabel="BCell Antibody Counts" sType="INTEGER" defaultValue="40"/>
+  <attributes label="CitokineValue" ID="citokineValue" pluralLabel="CitokineValues" sType="FLOAT" defaultValue="100"/>
+  <attributes label="Circulation Width" ID="circulationWidth" pluralLabel="Circulation Widths" sType="INTEGER" defaultValue="250"/>
+  <attributes label="Circulation Height" ID="circulationHeight" pluralLabel="Circulation Heights" sType="INTEGER" defaultValue="250"/>
+  <attributes label="Lymphnode Width" ID="lymphnodeWidth" pluralLabel="Lymphnode Widths" sType="INTEGER" defaultValue="50"/>
+  <attributes label="Lymphnode Height" ID="lymphnodeHeight" pluralLabel="Lymphnode Heights" sType="INTEGER" defaultValue="50"/>
+  <attributes label="Portal Macrophage To Send" ID="portalMacrophageToSend" pluralLabel="Portal Macrophage To Sends" sType="INTEGER" defaultValue="5"/>
+  <attributes label="Portal NK To Send" ID="portalNKToSend" pluralLabel="Portal NK To Sends" sType="INTEGER" defaultValue="5"/>
+  <attributes label="Portal MK1 Threshold" ID="portalMK1Threshold" pluralLabel="Portal MK1 Thresholds" sType="FLOAT" defaultValue="1"/>
+  <attributes label="Portal PK1 Threshold" ID="portalPK1Threshold" pluralLabel="Portal PK1 Thresholds" sType="FLOAT" defaultValue="1"/>
+  <attributes label="Antibody Self Pattern" ID="antibodySelfPattern" pluralLabel="Antibody Self Patterns" sType="STRING" defaultValue="11000011111000000111"/>
+  <implementation package="autosimmune.env" className="Global" basePath="../AutoSimmune" mode="AUTO"/>
+  <agents xsi:type="score:SContext" label="Circulation" ID="circulation" pluralLabel="Circulations">
+    <implementation package="autosimmune.env" className="Circulation" basePath="../AutoSimmune"/>
+    <agents label="CirculationPortal" ID="circulationPortal" pluralLabel="CirculationPortals">
+      <implementation package="autosimmune.agents.portals" className="CirculationPortal"/>
+    </agents>
+    <projections xsi:type="score:SGrid" label="CirculationGrid" ID="circulationGrid" pluralLabel="CirculationGrids" dimensionality="2" multiOccupant="true">
+      <attributes xsi:type="score:SAttributeArray" label="Dimensions" ID="dimensions" pluralLabel="Dimensionss" description="The size of each dimension." sType="INTEGER" size="2"/>
+      <attributes label="Width" ID="width" pluralLabel="Widths" description="The horizontal extent of the space." sType="INTEGER" defaultValue="50"/>
+      <attributes label="Height" ID="height" pluralLabel="Heights" description="The vertical extent of the space." sType="INTEGER" defaultValue="50"/>
+    </projections>
+  </agents>
+  <agents xsi:type="score:SContext" label="Lymphnode" ID="lymphnode" pluralLabel="Lymphnodes">
+    <implementation package="autosimmune.env" className="Lymphnode" basePath="../AutoSimmune"/>
+    <agents label="Dendritic" ID="dendritic" pluralLabel="Dendritics">
+      <implementation package="autosimmune.agents.cells" className="Dendritic"/>
+      <styles xsi:type="score:SStyle2D" label="DendriticStyle2D" ID="dendriticStyle2D">
+        <implementation package="autosimmune.agents.cells.styles" className="DendriticStyle2D"/>
+      </styles>
+    </agents>
+    <agents label="ThCell" ID="thCell" pluralLabel="ThCells">
+      <implementation package="autosimmune.agents.cells" className="ThCell"/>
+    </agents>
+    <agents label="BCell" ID="bCell" pluralLabel="BCells">
+      <implementation package="autosimmune.agents.cells" className="BCell"/>
+    </agents>
+    <agents label="CTL" ID="cTL" pluralLabel="CTLs">
+      <implementation package="autosimmune.agents.cells" className="CTL"/>
+    </agents>
+    <agents label="LymphnodePortal" ID="lymphnodePortal" pluralLabel="LymphnodePortals">
+      <implementation package="autosimmune.agents.portals" className="LymphnodePortal"/>
+    </agents>
+    <projections xsi:type="score:SGrid" label="LymphnodeGrid" ID="lymphnodeGrid" pluralLabel="LymphnodeGrids" dimensionality="2" multiOccupant="true">
+      <attributes xsi:type="score:SAttributeArray" label="Dimensions" ID="dimensions" pluralLabel="Dimensionss" description="The size of each dimension." sType="INTEGER" size="2"/>
+      <attributes label="Width" ID="width" pluralLabel="Widths" description="The horizontal extent of the space." sType="INTEGER" defaultValue="50" units=""/>
+      <attributes label="Height" ID="height" pluralLabel="Heights" description="The vertical extent of the space." sType="INTEGER" defaultValue="50"/>
+    </projections>
+  </agents>
+  <agents xsi:type="score:SContext" label="Tissue" ID="tissue" pluralLabel="Tissues">
+    <implementation package="" className="Tissue" basePath=""/>
+    <agents label="PC" ID="pC" pluralLabel="PCs">
+      <implementation package="autosimmune.agents.cells" className="PC"/>
+      <styles xsi:type="score:SStyle2D" label="PCStyle2D" ID="pCStyle2D">
+        <implementation package="autosimmune.agents.cells.styles" className="PCStyle2D"/>
+      </styles>
+    </agents>
+    <agents label="Virus" ID="virus" pluralLabel="Viruss">
+      <implementation package="autosimmune.agents.pathogens" className="Virus"/>
+      <styles xsi:type="score:SStyle2D" label="VirusStyle2D" ID="virusStyle2D">
+        <implementation package="autosimmune.agents.pathogens.styles" className="VirusStyle2D"/>
+      </styles>
+    </agents>
+    <agents label="Dendritic" ID="dendritic" pluralLabel="Dendritics">
+      <implementation package="autosimmune.agents.cells" className="Dendritic"/>
+      <styles xsi:type="score:SStyle2D" label="DendriticStyle2D" ID="dendriticStyle2D">
+        <implementation package="autosimmune.agents.cells.styles" className="DendriticStyle2D"/>
+      </styles>
+    </agents>
+    <agents label="Macrophage" ID="macrophage" pluralLabel="Macrophages">
+      <implementation package="autosimmune.agents.cells" className="Macrophage"/>
+    </agents>
+    <agents label="NK" ID="nK" pluralLabel="NKs">
+      <implementation package="autosimmune.agents.cells" className="NK"/>
+    </agents>
+    <agents label="TissuePortal" ID="tissuePortal" pluralLabel="TissuePortals">
+      <implementation package="autosimmune.agents.portals" className="TissuePortal"/>
+    </agents>
+    <agents label="Antibody" ID="antibody" pluralLabel="Antibodies">
+      <implementation package="autosimmune.agents" className="Antibody"/>
+      <styles xsi:type="score:SStyle2D" label="AntibodyStyle2D" ID="antibodyStyle2D">
+        <implementation package="autosimmune.agents.styles" className="AntibodyStyle2D"/>
+      </styles>
+    </agents>
+    <agents label="TissueLogger" ID="tissueLogger" pluralLabel="TissueLoggers">
+      <implementation package="autosimmune.agents.logger" className="TissueLogger"/>
+    </agents>
+    <agents label="BCell" ID="bCell" pluralLabel="BCells">
+      <implementation package="autosimmune.agents.cells" className="BCell"/>
+    </agents>
+    <agents label="ThCell" ID="thCell" pluralLabel="ThCells">
+      <implementation package="autosimmune.agents.cells" className="ThCell"/>
+    </agents>
+    <agents label="CTL" ID="cTL" pluralLabel="CTLs">
+      <implementation package="autosimmune.agents.cells" className="CTL"/>
+    </agents>
+    <projections xsi:type="score:SGrid" label="TissueGrid" ID="TissueGrid" pluralLabel="TissueGrids" dimensionality="2">
+      <attributes xsi:type="score:SAttributeArray" label="Dimensions" ID="dimensions" pluralLabel="Dimensionss" description="The size of each dimension." sType="INTEGER" size="2"/>
+      <attributes label="Width" ID="width" pluralLabel="Widths" description="The horizontal extent of the space." sType="INTEGER" defaultValue="20"/>
+      <attributes label="Height" ID="height" pluralLabel="Heights" description="The vertical extent of the space." sType="INTEGER" defaultValue="20"/>
+    </projections>
+    <valueLayers label="TissuePK1" ID="TissuePK1" pluralLabel="TissuePK1s"/>
+    <valueLayers label="TissueMK1" ID="TissueMK1" pluralLabel="TissueMK1s"/>
+  </agents>
+</score:SContext>
