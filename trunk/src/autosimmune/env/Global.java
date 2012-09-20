@@ -7,8 +7,7 @@ import org.apache.log4j.SimpleLayout;
 import repast.simphony.context.Context;
 import repast.simphony.context.DefaultContext;
 import repast.simphony.engine.environment.RunEnvironment;
-import repast.simphony.engine.schedule.ISchedule;
-import repast.simphony.engine.schedule.ScheduleParameters;
+import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.parameter.Parameters;
 import autosimmune.agents.Agent;
 import autosimmune.agents.pathogens.Virus;
@@ -42,18 +41,18 @@ public class Global extends DefaultContext<Agent>  {
 		pamps.addPamp(new Pattern("00111100"));
 		
 		Tissue tissue = new Tissue();
-		//Circulation circulation = new Circulation();
-		//Lymphnode lymphnode = new Lymphnode();
+		Circulation circulation = new Circulation();
+		Lymphnode lymphnode = new Lymphnode();
 		
 		addSubContext(tissue);
 	
-		//addSubContext(circulation);
+		addSubContext(circulation);
 		
-		//addSubContext(lymphnode);
+		addSubContext(lymphnode);
 		
-		ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
-		ScheduleParameters params = ScheduleParameters.createOneTime(1);
-		schedule.schedule(params, this, "updateEnvironment");
+		//ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
+		//ScheduleParameters params = ScheduleParameters.createOneTime(1);
+		//schedule.schedule(params, this, "updateEnvironment");
 		
 		//termina a funcao retornando o ambiente ja configurado
 		return context;
@@ -61,14 +60,14 @@ public class Global extends DefaultContext<Agent>  {
 	
 	//retorna um parametro inteiro
 	public int getIntegerParameter(EnvParameters n){
-		//acessa os parâmetros do ambiente
+		//acessa os parÃ¢metros do ambiente
 		Parameters p = RunEnvironment.getInstance().getParameters();
 		return (Integer) p.getValue(n.toString());
 	}
 	
 	//retorna um parametro booleano
 	public boolean getBoolParameter(EnvParameters n){
-		//acessa os parâmetros do ambiente
+		//acessa os parÃ¢metros do ambiente
 		Parameters p = RunEnvironment.getInstance().getParameters();
 		return p.getValue(n.toString()).toString().equals("true");
 	}
@@ -80,7 +79,7 @@ public class Global extends DefaultContext<Agent>  {
 	 * @see EnvParameters
 	 */
 	public float getFloatParameter(EnvParameters n){
-		//acessa os parâmetros do ambiente
+		//acessa os parÃ¢metros do ambiente
 		Parameters p = RunEnvironment.getInstance().getParameters();
 		return Float.parseFloat(p.getValueAsString(n.toString()));
 	}
@@ -98,7 +97,7 @@ public class Global extends DefaultContext<Agent>  {
 	
 
 	//realiza atualizacoes globais
-	//@ScheduledMethod(start=0,interval=1)
+	@ScheduledMethod(start=0,interval=1)
 	public void updateEnvironment(){
 		Iterable<Context<? extends Agent>> it  = getSubContexts();
 		for(Context<? extends Agent> c: it){
@@ -118,7 +117,7 @@ public class Global extends DefaultContext<Agent>  {
 		}
 		
 		//re-infeccao
-		//TODO parametrizar a opção de simular re-infeccao
+		//TODO parametrizar a opÃ§Ã£o de simular re-infeccao
 		/*
 		if(ticks == 300){
 			Tissue ts = (Tissue) Environment.getEnvironment(EnvNames.Tissue);
