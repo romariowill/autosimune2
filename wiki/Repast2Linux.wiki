@@ -1,6 +1,6 @@
-#summary One-sentence summary of this page.
+#summary Guia de Instalação do Repast 2 no Linux.
 #labels Phase-Deploy
-Guia passo a passo para a instalação do Repast 2 no Linuc
+Guia passo a passo para a instalação do Repast 2 no Linux
 
 = Detalhes =
 
