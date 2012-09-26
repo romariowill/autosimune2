@@ -1,0 +1,26 @@
+#summary One-sentence summary of this page.
+#labels Phase-Deploy
+Guia passo a passo para a instalação do Repast 2 no Linuc
+
+= Detalhes =
+
+1) Baixe o Eclipse 4.2 Classic <br>
+2) No Help->Install new software selecione o repositorio Juno -
+http://download.eclipse.org/releases/juno e selecione Programming
+languages -> Eclipse XML editors and tools (instale e reinicie) <br>
+3) No Help->Install new software  digite o repositorio
+http://dist.springsource.org/release/GRECLIPSE/e4.2/  e selecione
+Groovy-Eclipse e extra groovy compilers  (instale e reinicie)<br>
+4)  No Help->Install new software  digite o repositorio
+http://mirror.anl.gov/pub/repastsimphony  e selecione tudo  (instale e
+reinicie)<br>
+5) Baixe do site
+http://download.java.net/media/jogl/builds/archive/jsr-231-1.1.1a/  a
+versão adequada para sua máquina no JOGL <br>
+6) descompacte em uma pasta qualquer. <br>
+7) Mova os arquivos "so" para /usr/lib <br>
+8) Nos projetos que usem JOGL adicionem os jars jogl.jar e
+gluegen-rt.jar no CLASSPATH do Run Configurations -> aba Classpath ->
+user entries <br>
+9) Nos projetos que usem JOGL adicionem os jars jogl.jar e
+gluegen-rt.jar no build path -> add external jars <br>
