@@ -73,8 +73,7 @@ public class Tissue extends Environment {
 					this.addAgent(new PC(this, i+1, j));
 				}
 			}
-		}
-		
+		}		
 		
 		//cria os portais da zona Tissue
 		//pQ = portalQuarter = quarteirao do portal
