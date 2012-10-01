@@ -32,8 +32,6 @@ public class Lymphnode extends Environment {
 		int w = global.getIntegerParameter(EnvParameters.LYMPHNODE_WIDTH);
 		int h = global.getIntegerParameter(EnvParameters.LYMPHNODE_HEIGHT);
 		
-		System.out.println("Criou Grid: " + getEnvName()+"Grid");
-		
 		//cria uma nova projecao, do tipo grid, com o tamanho especificado pelo paramentro
 		space = GridFactoryFinder.createGridFactory(null)
 		.createGrid(getEnvName()+"Grid", this, new GridBuilderParameters<Agent>(
