@@ -6,6 +6,7 @@ import org.apache.log4j.SimpleLayout;
 
 import repast.simphony.context.Context;
 import repast.simphony.context.DefaultContext;
+import repast.simphony.dataLoader.ContextBuilder;
 import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.parameter.Parameters;
@@ -16,7 +17,7 @@ import autosimmune.defs.PAMPS;
 import autosimmune.defs.ZoneNames;
 import autosimmune.utils.Pattern;
 
-public class Global extends DefaultContext<Agent>  {
+public class Global extends DefaultContext<Agent>  implements ContextBuilder<Object> {
 
 	private static Global instance;
 
@@ -44,6 +45,7 @@ public class Global extends DefaultContext<Agent>  {
 		Circulation circulation = new Circulation();
 		Lymphnode lymphnode = new Lymphnode();
 		
+		context.addSubContext(this);
 		addSubContext(tissue);
 		addSubContext(circulation);
 		addSubContext(lymphnode);
