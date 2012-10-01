@@ -45,29 +45,23 @@ public class Global extends DefaultContext<Agent>  {
 		Lymphnode lymphnode = new Lymphnode();
 		
 		addSubContext(tissue);
-	
 		addSubContext(circulation);
-		
 		addSubContext(lymphnode);
-		
-		//ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
-		//ScheduleParameters params = ScheduleParameters.createOneTime(1);
-		//schedule.schedule(params, this, "updateEnvironment");
-		
+
 		//termina a funcao retornando o ambiente ja configurado
 		return context;
 	}
 	
 	//retorna um parametro inteiro
 	public int getIntegerParameter(EnvParameters n){
-		//acessa os parÃ¢metros do ambiente
+		//acessa os parametros do ambiente
 		Parameters p = RunEnvironment.getInstance().getParameters();
 		return (Integer) p.getValue(n.toString());
 	}
 	
 	//retorna um parametro booleano
 	public boolean getBoolParameter(EnvParameters n){
-		//acessa os parÃ¢metros do ambiente
+		//acessa os parametros do ambiente
 		Parameters p = RunEnvironment.getInstance().getParameters();
 		return p.getValue(n.toString()).toString().equals("true");
 	}
@@ -79,7 +73,7 @@ public class Global extends DefaultContext<Agent>  {
 	 * @see EnvParameters
 	 */
 	public float getFloatParameter(EnvParameters n){
-		//acessa os parÃ¢metros do ambiente
+		//acessa os parametros do ambiente
 		Parameters p = RunEnvironment.getInstance().getParameters();
 		return Float.parseFloat(p.getValueAsString(n.toString()));
 	}
@@ -117,7 +111,7 @@ public class Global extends DefaultContext<Agent>  {
 		}
 		
 		//re-infeccao
-		//TODO parametrizar a opÃ§Ã£o de simular re-infeccao
+		//TODO parametrizar a opcao de simular re-infeccao
 		/*
 		if(ticks == 300){
 			Tissue ts = (Tissue) Environment.getEnvironment(EnvNames.Tissue);
