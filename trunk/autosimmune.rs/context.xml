@@ -128,8 +128,7 @@
 			<attribute id="allows multi" value="true" type="boolean" />
 
 			<attribute id="width" display_name="Width" value="50" type="int" />
-			<attribute id="height" display_name="Height" value="50"
-				type="int" />
+			<attribute id="height" display_name="Height" value="50" type="int" />
 		</projection>
 	</context>
 	<context id="Lymphnode">
@@ -138,8 +137,7 @@
 			<attribute id="allows multi" value="true" type="boolean" />
 
 			<attribute id="width" display_name="Width" value="50" type="int" />
-			<attribute id="height" display_name="Height" value="50"
-				type="int" />
+			<attribute id="height" display_name="Height" value="50" type="int" />
 		</projection>
 	</context>
 	<context id="Tissue">
@@ -147,8 +145,7 @@
 		<projection id="TissueGrid" type="grid">
 
 			<attribute id="width" display_name="Width" value="150" type="int" />
-			<attribute id="height" display_name="Height" value="150"
-				type="int" />
+			<attribute id="height" display_name="Height" value="150" type="int" />
 		</projection>
 		<projection id="TissuePK1" type="value layer" />
 		<projection id="TissueMK1" type="value layer" />
