@@ -146,8 +146,8 @@
 
 		<projection id="TissueGrid" type="grid">
 
-			<attribute id="width" display_name="Width" value="20" type="int" />
-			<attribute id="height" display_name="Height" value="20"
+			<attribute id="width" display_name="Width" value="150" type="int" />
+			<attribute id="height" display_name="Height" value="150"
 				type="int" />
 		</projection>
 		<projection id="TissuePK1" type="value layer" />

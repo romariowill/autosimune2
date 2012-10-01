@@ -67,7 +67,7 @@
 									
 		/>
 				<parameter name="TissueGridheight" displayName="TissueGrid Height" type="java.lang.Integer" 
-						defaultValue="20" 
+						defaultValue="150" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
@@ -211,7 +211,7 @@
 									
 		/>
 				<parameter name="TissueGridwidth" displayName="TissueGrid Width" type="java.lang.Integer" 
-						defaultValue="20" 
+						defaultValue="150" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
