@@ -11,11 +11,11 @@
       <string>repast.simphony.visualizationOGL2D.DefaultStyleOGL2D</string>
     </entry>
     <entry>
-      <string>autosimmune.agents.cells.PC</string>
+      <string>autosimmune.agents.pathogens.Virus</string>
       <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
     <entry>
-      <string>autosimmune.agents.pathogens.Virus</string>
+      <string>autosimmune.agents.cells.PC</string>
       <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
   </styles>
@@ -29,12 +29,12 @@
       <null/>
     </entry>
     <entry>
-      <string>autosimmune.agents.cells.PC</string>
-      <string>autosimmune.agents.cells.PC.style_0.xml</string>
-    </entry>
-    <entry>
       <string>autosimmune.agents.pathogens.Virus</string>
       <string>autosimmune.agents.pathogens.Virus.style_0.xml</string>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.PC</string>
+      <string>autosimmune.agents.cells.PC.style_0.xml</string>
     </entry>
   </editedStyles>
   <netStyles/>
@@ -62,12 +62,12 @@
       <int>2</int>
     </entry>
     <entry>
-      <string>autosimmune.agents.cells.PC</string>
-      <int>0</int>
-    </entry>
-    <entry>
       <string>autosimmune.agents.pathogens.Virus</string>
       <int>1</int>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.PC</string>
+      <int>0</int>
     </entry>
   </layerOrder>
   <projections>

@@ -124,7 +124,7 @@
 
 	<context id="Circulation">
 
-		<projection id="circulationGrid" type="grid">
+		<projection id="CirculationGrid" type="grid">
 			<attribute id="allows multi" value="true" type="boolean" />
 
 			<attribute id="width" display_name="Width" value="50" type="int" />

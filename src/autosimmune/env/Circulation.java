@@ -16,7 +16,7 @@ public class Circulation extends Environment {
 
 	public Circulation() {
 		
-		super(   ZoneNames.circulation);
+		super(   ZoneNames.Circulation);
 
 		//pega o tamanho deste espaco
 		int w = global.getIntegerParameter(EnvParameters.CIRCULATION_WIDTH);

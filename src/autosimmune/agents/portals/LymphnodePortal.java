@@ -24,26 +24,26 @@ public class LymphnodePortal extends Portal {
 	public void step(){
 		
 		if (this.direction.equals(PortalDirections.OUT)){
-			Circulation circulation = (Circulation) Environment.getEnvironment(ZoneNames.circulation);
+			Circulation circulation = (Circulation) Environment.getEnvironment(ZoneNames.Circulation);
 			//TODO verificar se o portal é do tipo IN
 			CirculationPortal cp = (CirculationPortal) circulation.getPortalList().get(0);
 			for(Cell c : getEspecificNeighbors(Cell.class)){
 				if(c instanceof ThCell){
 					ThCell cell = (ThCell) c;
 					if(cell.isActive()){
-						Portal.transportToZone(c, ZoneNames.circulation, cp.getX(), cp.getY());
+						Portal.transportToZone(c, ZoneNames.Circulation, cp.getX(), cp.getY());
 						break;
 					}
 				} else if (c instanceof BCell){
 					BCell cell = (BCell) c;
 					if(cell.isActive()){
-						Portal.transportToZone(c, ZoneNames.circulation, cp.getX(), cp.getY());
+						Portal.transportToZone(c, ZoneNames.Circulation, cp.getX(), cp.getY());
 						break;
 					}
 				} else if (c instanceof CTL){
 					CTL cell = (CTL) c;
 					if(cell.isActive()){
-						Portal.transportToZone(c, ZoneNames.circulation, cp.getX(), cp.getY());
+						Portal.transportToZone(c, ZoneNames.Circulation, cp.getX(), cp.getY());
 						break;
 					}
 				}
