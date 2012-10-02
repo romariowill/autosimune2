@@ -1,5 +1,5 @@
 package autosimmune.defs;
 
 public enum ZoneNames {
-	Lymphnode, Tissue, circulation, Timus, BoneMarrow
+	Lymphnode, Tissue, Circulation, Timus, BoneMarrow
 }

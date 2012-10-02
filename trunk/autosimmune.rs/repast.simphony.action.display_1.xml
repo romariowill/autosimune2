@@ -1,32 +1,32 @@
 <repast.simphony.visualization.engine.DefaultDisplayDescriptor>
-  <name>CircDis</name>
+  <name>A Display</name>
   <type>TWO_D</type>
   <styles>
-    <entry>
-      <string>autosimmune.agents.pathogens.Bacteria</string>
-      <string>repast.simphony.visualizationOGL2D.DefaultStyleOGL2D</string>
-    </entry>
     <entry>
       <string>autosimmune.agents.cells.BCell</string>
       <string>repast.simphony.visualizationOGL2D.DefaultStyleOGL2D</string>
     </entry>
     <entry>
-      <string>autosimmune.agents.pathogens.Virus</string>
-      <string>repast.simphony.visualizationOGL2D.DefaultStyleOGL2D</string>
+      <string>autosimmune.agents.cells.Macrophage</string>
+      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.portals.Portal</string>
+      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
   </styles>
   <editedStyles>
     <entry>
-      <string>autosimmune.agents.pathogens.Bacteria</string>
-      <null/>
-    </entry>
-    <entry>
       <string>autosimmune.agents.cells.BCell</string>
       <null/>
     </entry>
     <entry>
-      <string>autosimmune.agents.pathogens.Virus</string>
-      <null/>
+      <string>autosimmune.agents.cells.Macrophage</string>
+      <string>autosimmune.agents.cells.Macrophage.style_2.xml</string>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.portals.Portal</string>
+      <string>autosimmune.agents.portals.Portal.style_0.xml</string>
     </entry>
   </editedStyles>
   <netStyles/>
@@ -40,25 +40,25 @@
     <frequency>REPEAT</frequency>
   </schedParams>
   <layoutClassName>foo.bar.baz</layoutClassName>
-  <layoutProjection>circulationGrid</layoutProjection>
+  <layoutProjection>CirculationGrid</layoutProjection>
   <layoutInterval>0</layoutInterval>
   <layerOrder>
     <entry>
-      <string>autosimmune.agents.pathogens.Bacteria</string>
+      <string>autosimmune.agents.cells.BCell</string>
       <int>1</int>
     </entry>
     <entry>
-      <string>autosimmune.agents.cells.BCell</string>
-      <int>2</int>
+      <string>autosimmune.agents.cells.Macrophage</string>
+      <int>0</int>
     </entry>
     <entry>
-      <string>autosimmune.agents.pathogens.Virus</string>
-      <int>0</int>
+      <string>autosimmune.agents.portals.Portal</string>
+      <int>2</int>
     </entry>
   </layerOrder>
   <projections>
     <repast.simphony.scenario.data.ProjectionData>
-      <id>circulationGrid</id>
+      <id>CirculationGrid</id>
       <attributes>
         <repast.simphony.scenario.data.DefaultAttribute>
           <name>allows multi</name>
@@ -91,7 +91,7 @@
   </visualizationProperties>
   <projectionDescriptors>
     <entry>
-      <string>circulationGrid</string>
+      <string>CirculationGrid</string>
       <repast.simphony.visualization.grid.GridProjectionDescriptor>
         <proj reference="../../../../projections/repast.simphony.scenario.data.ProjectionData"/>
         <props>
@@ -118,9 +118,9 @@
   </projectionDescriptors>
   <props/>
   <backgroundColor>
-    <red>255</red>
+    <red>204</red>
     <green>255</green>
-    <blue>255</blue>
+    <blue>204</blue>
     <alpha>255</alpha>
   </backgroundColor>
 </repast.simphony.visualization.engine.DefaultDisplayDescriptor>

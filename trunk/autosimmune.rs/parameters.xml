@@ -222,6 +222,12 @@
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
+				<parameter name="CirculationGridwidth" displayName="CirculationGrid Width" type="java.lang.Integer" 
+						defaultValue="50" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
 				<parameter name="difusionConstant" displayName="Difusion Constant" type="java.lang.Double" 
 						defaultValue="0.5" 
 						isReadOnly="false" 
@@ -342,6 +348,12 @@
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
+				<parameter name="CirculationGridheight" displayName="CirculationGrid Height" type="java.lang.Integer" 
+						defaultValue="50" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
 				<parameter name="virusTargetPattern" displayName="Virus Target Pattern" type="java.lang.String" 
 						defaultValue="00000000001111111111" 
 						isReadOnly="false" 
@@ -352,12 +364,6 @@
 						defaultValue="01010101010101010101" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
-									
-		/>
-				<parameter name="circulationGridwidth" displayName="circulationGrid Width" type="java.lang.Integer" 
-						defaultValue="50" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
 				<parameter name="LymphnodeGridheight" displayName="LymphnodeGrid Height" type="java.lang.Integer" 
@@ -392,12 +398,6 @@
 		/>
 				<parameter name="tissueQuarter" displayName="Tissue Quarter" type="java.lang.Integer" 
 						defaultValue="9" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
-									
-		/>
-				<parameter name="circulationGridheight" displayName="circulationGrid Height" type="java.lang.Integer" 
-						defaultValue="50" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
