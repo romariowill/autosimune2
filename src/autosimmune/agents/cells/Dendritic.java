@@ -119,7 +119,7 @@ public class Dendritic extends APC {
 			case MIGRATING: {
 				followCitokineByGradient(true, CitokineNames.MK1);
 				if(getCitokineValue(CitokineNames.MK1)>2){
-					Portal.transportToZone(this, ZoneNames.lymphnode, 10, 10);
+					Portal.transportToZone(this, ZoneNames.Lymphnode, 10, 10);
 					this.state = DendriticStates.PRESENTING;
 				}
 			} break;

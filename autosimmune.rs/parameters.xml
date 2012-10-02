@@ -48,12 +48,6 @@
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
-				<parameter name="lymphnodeGridwidth" displayName="lymphnodeGrid Width" type="java.lang.Integer" 
-						defaultValue="50" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
-									
-		/>
 				<parameter name="macrophageLifetime" displayName="Macrophage Lifetime" type="java.lang.Integer" 
 						defaultValue="20" 
 						isReadOnly="false" 
@@ -234,12 +228,6 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
-				<parameter name="lymphnodeGridheight" displayName="lymphnodeGrid Height" type="java.lang.Integer" 
-						defaultValue="50" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
-									
-		/>
 				<parameter name="nKKillLimit" displayName="NK Kill Limit" type="java.lang.Integer" 
 						defaultValue="2" 
 						isReadOnly="false" 
@@ -248,6 +236,12 @@
 		/>
 				<parameter name="bCellLifetime" displayName="BCell Lifetime" type="java.lang.Integer" 
 						defaultValue="400" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="LymphnodeGridwidth" displayName="LymphnodeGrid Width" type="java.lang.Integer" 
+						defaultValue="50" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
@@ -361,6 +355,12 @@
 									
 		/>
 				<parameter name="circulationGridwidth" displayName="circulationGrid Width" type="java.lang.Integer" 
+						defaultValue="50" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="LymphnodeGridheight" displayName="LymphnodeGrid Height" type="java.lang.Integer" 
 						defaultValue="50" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
