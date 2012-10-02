@@ -134,7 +134,7 @@ public class CTL extends Cell implements Lymphocyte {
 			case ACTIVE: {
 				
 				//tarefas a serem executadas se estiver no linfonodo
-				if(this.zone.getEnvName().equals(ZoneNames.lymphnode)){
+				if(this.zone.getEnvName().equals(ZoneNames.Lymphnode)){
 					
 					lifeLymphnode--;
 					if(lifeLymphnode <= 0){
@@ -197,7 +197,7 @@ public class CTL extends Cell implements Lymphocyte {
 			
 			
 			case MEMORY: {
-				if(this.zone.getEnvName().equals(ZoneNames.lymphnode)){
+				if(this.zone.getEnvName().equals(ZoneNames.Lymphnode)){
 					followCitokineByGradient(true, CitokineNames.MK1);
 						for(APC d : getEspecificNeighbors(APC.class)){
 							//FIXME o CTL examina o MHCI

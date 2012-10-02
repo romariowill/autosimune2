@@ -133,7 +133,7 @@
 	</context>
 	<context id="Lymphnode">
 
-		<projection id="lymphnodeGrid" type="grid">
+		<projection id="LymphnodeGrid" type="grid">
 			<attribute id="allows multi" value="true" type="boolean" />
 
 			<attribute id="width" display_name="Width" value="50" type="int" />

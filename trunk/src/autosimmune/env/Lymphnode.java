@@ -26,7 +26,7 @@ public class Lymphnode extends Environment {
 	private int numBCells;
 	
 	public Lymphnode() {
-		super(ZoneNames.lymphnode);
+		super(ZoneNames.Lymphnode);
 		
 		//pega o tamanho deste espaco
 		int w = global.getIntegerParameter(EnvParameters.LYMPHNODE_WIDTH);
