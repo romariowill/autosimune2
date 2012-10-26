@@ -81,7 +81,6 @@ public abstract class Environment extends DefaultContext<Agent> {
 	 *            Coordenada Y
 	 * @return double Valor da Citocina
 	 */
-	@Deprecated
 	public double getCitokineValue(CitokineNames citokine, int x, int y) {
 		if (citokines.containsKey(citokine)) {
 			double valor = citokines.get(citokine).getValueLayer().get(x, y);
@@ -312,26 +311,22 @@ public abstract class Environment extends DefaultContext<Agent> {
 	 *            Coordenada X
 	 * @param y
 	 *            Coordenada Y
-	 * @deprecated (use o outro metodo, para utilizar o parametro do sistema)
 	 */
-	public void releaseCitokine(CitokineNames citokine, double value, int x,
+	private void releaseCitokine(CitokineNames citokine, double value, int x,
 			int y) {
 
 		if (!citokines.containsKey(citokine)) {
 			return;
 		}
 
-		if (x >80 || y >80) {
-			  System.out.println("X/Y:"+x+"/"+y);
-		}
-	
+			
 		// libera a citocina no layer
 		Double currentValue = citokines.get(citokine).getValueLayer().get(x, y);
 		try {
 			citokines.get(citokine).getValueLayer()
 					.get(currentValue + value, x, y);
 		} catch (Exception e) {
-            System.out.println("X/Y:"+x+"/"+y);
+            System.out.println(e.getMessage()+" -- X/Y:"+x+"/"+y);
 		}
 	}
 

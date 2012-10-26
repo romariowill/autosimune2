@@ -62,16 +62,6 @@ abstract public class Cell extends Antigen {
 	}
 	
 	/**
-	 * Libera uma citocina especifica, com determinado valor, na posicao atual.
-	 * @param citokine Tipo de Citocina
-	 * @param value Quantidade de citocina
-	 * @deprecated (use o outro metodo, para utilizar o parametro do sistema)
-	 */
-	protected void releaseCitokine(CitokineNames citokine, double value){
-		zone.releaseCitokine(citokine, value, getX(), getY());
-	}
-	
-	/**
 	 * Libera uma citocina especifica, na posicial atual, e com valor default
 	 * @param citokine
 	 */
