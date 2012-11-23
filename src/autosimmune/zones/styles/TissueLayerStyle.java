@@ -19,7 +19,7 @@ public class TissueLayerStyle implements ValueLayerStyleOGL{
 
 	@Override
 	public float getCellSize() {
-		return 10;
+		return 15;
 	}
 
 	

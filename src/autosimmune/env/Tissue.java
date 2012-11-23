@@ -89,7 +89,7 @@ public class Tissue extends Environment {
 		
 		System.out.println("Criou subcontexto: " + getEnvName());
 		
-		//global.addSubContext(this);
+		global.addSubContext(this);
 	}
 	
 }

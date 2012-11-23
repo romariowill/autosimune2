@@ -1,40 +1,96 @@
 <repast.simphony.visualization.engine.DefaultDisplayDescriptor>
-  <name>A Display</name>
+  <name>TissueDisplay</name>
   <type>TWO_D</type>
   <styles>
     <entry>
-      <string>autosimmune.agents.cells.APC</string>
+      <string>autosimmune.agents.Antibody</string>
       <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
     <entry>
-      <string>autosimmune.agents.cells.Cell</string>
+      <string>autosimmune.agents.cells.Dendritic</string>
+      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.ThCell</string>
+      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.BCell</string>
+      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
+    </entry>
+    <entry>
+      <string>autosimmune.defs.TissuePortalStates</string>
       <string>repast.simphony.visualizationOGL2D.DefaultStyleOGL2D</string>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.NK</string>
+      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.PC</string>
+      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.portals.TissuePortal</string>
+      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
     <entry>
       <string>autosimmune.agents.pathogens.Virus</string>
       <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
     <entry>
-      <string>autosimmune.agents.cells.PC</string>
+      <string>autosimmune.agents.cells.CTL</string>
+      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.Macrophage</string>
       <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
   </styles>
   <editedStyles>
     <entry>
-      <string>autosimmune.agents.cells.APC</string>
-      <string>autosimmune.agents.cells.APC.style_0.xml</string>
+      <string>autosimmune.agents.Antibody</string>
+      <string>autosimmune.agents.Antibody.style_0.xml</string>
     </entry>
     <entry>
-      <string>autosimmune.agents.cells.Cell</string>
+      <string>autosimmune.agents.cells.Dendritic</string>
+      <string>autosimmune.agents.cells.Dendritic.style_6.xml</string>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.ThCell</string>
+      <string>autosimmune.agents.cells.ThCell.style_9.xml</string>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.BCell</string>
+      <string>autosimmune.agents.cells.BCell.style_7.xml</string>
+    </entry>
+    <entry>
+      <string>autosimmune.defs.TissuePortalStates</string>
       <null/>
     </entry>
     <entry>
-      <string>autosimmune.agents.pathogens.Virus</string>
-      <string>autosimmune.agents.pathogens.Virus.style_0.xml</string>
+      <string>autosimmune.agents.cells.NK</string>
+      <string>autosimmune.agents.cells.NK.style_5.xml</string>
     </entry>
     <entry>
       <string>autosimmune.agents.cells.PC</string>
-      <string>autosimmune.agents.cells.PC.style_0.xml</string>
+      <string>autosimmune.agents.cells.PC.style_8.xml</string>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.portals.TissuePortal</string>
+      <string>autosimmune.agents.portals.TissuePortal.style_5.xml</string>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.pathogens.Virus</string>
+      <string>autosimmune.agents.pathogens.Virus.style_8.xml</string>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.CTL</string>
+      <string>autosimmune.agents.cells.CTL.style_5.xml</string>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.Macrophage</string>
+      <string>autosimmune.agents.cells.Macrophage.style_2.xml</string>
     </entry>
   </editedStyles>
   <netStyles/>
@@ -48,26 +104,53 @@
     <frequency>REPEAT</frequency>
   </schedParams>
   <layoutClassName>foo.bar.baz</layoutClassName>
-  <valueLayerStyleName>repast.simphony.visualization.editedStyle.EditedValueLayerStyle2D</valueLayerStyleName>
-  <valueLayerEditedStyleName>TissuePK1.style_1.xml</valueLayerEditedStyleName>
+  <valueLayerStyleName>autosimmune.zones.styles.TissueLayerStyle</valueLayerStyleName>
   <layoutProjection>TissueGrid</layoutProjection>
   <layoutInterval>0</layoutInterval>
   <layerOrder>
     <entry>
-      <string>autosimmune.agents.cells.APC</string>
-      <int>3</int>
+      <string>autosimmune.agents.Antibody</string>
+      <int>10</int>
     </entry>
     <entry>
-      <string>autosimmune.agents.cells.Cell</string>
+      <string>autosimmune.agents.cells.Dendritic</string>
+      <int>5</int>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.ThCell</string>
+      <int>9</int>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.BCell</string>
+      <int>8</int>
+    </entry>
+    <entry>
+      <string>autosimmune.defs.TissuePortalStates</string>
+      <int>0</int>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.NK</string>
+      <int>6</int>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.PC</string>
+      <int>1</int>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.portals.TissuePortal</string>
       <int>2</int>
     </entry>
     <entry>
       <string>autosimmune.agents.pathogens.Virus</string>
-      <int>1</int>
+      <int>3</int>
     </entry>
     <entry>
-      <string>autosimmune.agents.cells.PC</string>
-      <int>0</int>
+      <string>autosimmune.agents.cells.CTL</string>
+      <int>7</int>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.Macrophage</string>
+      <int>4</int>
     </entry>
   </layerOrder>
   <projections>
@@ -76,14 +159,14 @@
       <attributes>
         <repast.simphony.scenario.data.DefaultAttribute>
           <name>Width</name>
-          <value>20</value>
+          <value>150</value>
           <id>width</id>
           <type>int</type>
           <converter class="repast.simphony.parameter.StringConverterFactory$IntConverter"/>
         </repast.simphony.scenario.data.DefaultAttribute>
         <repast.simphony.scenario.data.DefaultAttribute>
           <name>Height</name>
-          <value>20</value>
+          <value>150</value>
           <id>height</id>
           <type>int</type>
           <converter class="repast.simphony.parameter.StringConverterFactory$IntConverter" reference="../../repast.simphony.scenario.data.DefaultAttribute/converter"/>
@@ -113,7 +196,7 @@
               </entry>
               <entry>
                 <string>SHOW</string>
-                <boolean>true</boolean>
+                <boolean>false</boolean>
               </entry>
               <entry>
                 <string>COLOR</string>
@@ -127,9 +210,9 @@
   </projectionDescriptors>
   <props/>
   <backgroundColor>
-    <red>255</red>
-    <green>255</green>
-    <blue>255</blue>
+    <red>51</red>
+    <green>51</green>
+    <blue>51</blue>
     <alpha>255</alpha>
   </backgroundColor>
 </repast.simphony.visualization.engine.DefaultDisplayDescriptor>

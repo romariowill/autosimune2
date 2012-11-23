@@ -16,6 +16,7 @@ import autosimmune.defs.EnvParameters;
 import autosimmune.defs.PAMPS;
 import autosimmune.defs.ZoneNames;
 import autosimmune.utils.Pattern;
+import autosimmune.utils.RandomUtils;
 
 public class Global extends DefaultContext<Agent>  implements ContextBuilder<Object> {
 
@@ -28,10 +29,10 @@ public class Global extends DefaultContext<Agent>  implements ContextBuilder<Obj
 	public Global(){
 		super("AutoSimmune");
 		instance = this;
-		this.ticks = 0;
 		log = Logger.getRootLogger();
 		ConsoleAppender ca = new ConsoleAppender(new SimpleLayout());
 		log.addAppender(ca);
+		this.ticks = 0;
 	}
 	
 	public Context<Object> build(Context<Object> context) {
@@ -104,11 +105,11 @@ public class Global extends DefaultContext<Agent>  implements ContextBuilder<Obj
 		
 		if(ticks == 15){
 			Tissue ts = (Tissue) Environment.getEnvironment(ZoneNames.Tissue);
-			//int vx = RandomUtils.getRandomFromTo(0, ts.getWidth());
-			//int vy = RandomUtils.getRandomFromTo(0, ts.getHeight());
+			int vx = RandomUtils.getRandomFromTo(0, ts.getWidth());
+			int vy = RandomUtils.getRandomFromTo(0, ts.getHeight());
 			for(int i = 0; i < 40; i++){
-				//ts.addAgent(new Virus(ts, vx, vy));
-				ts.addAgent(new Virus(ts, 75, 75));
+				ts.addAgent(new Virus(ts, vx, vy));
+				//ts.addAgent(new Virus(ts, 75, 75));
 			}
 		}
 		
