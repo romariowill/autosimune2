@@ -265,7 +265,7 @@ public abstract class Environment extends DefaultContext<Agent> {
 			GridValueLayer gvl = new GridValueLayer(this.name.toString()
 					+ citokine.toString(), true, new WrapAroundBorders(),
 					getWidth(), getHeight());
-
+			
 			// cria o layer que utiliza o grid de valores
 			ValueLayerDiffuser vld = new ValueLayerDiffuser(gvl,
 					global.getFloatParameter(EnvParameters.EVAPORATION_RATE),
@@ -273,7 +273,7 @@ public abstract class Environment extends DefaultContext<Agent> {
 					true);
 
 			addValueLayer(gvl);
-			// env.addValueLayer(gvl);
+		    //env.addValueLayer(gvl);
 
 			// adiciona o novo layer a nossa estrutura
 			citokines.put(citokine, vld);
@@ -323,8 +323,10 @@ public abstract class Environment extends DefaultContext<Agent> {
 		// libera a citocina no layer
 		Double currentValue = citokines.get(citokine).getValueLayer().get(x, y);
 		try {
-			citokines.get(citokine).getValueLayer()
-					.get(currentValue + value, x, y);
+			GridValueLayer gvl = (GridValueLayer)citokines.get(citokine).getValueLayer();
+			gvl.set(currentValue + value, x,y);
+		//	citokines.get(citokine).getValueLayer()
+			//		.get(currentValue + value, x, y);
 		} catch (Exception e) {
             System.out.println(e.getMessage()+" -- X/Y:"+x+"/"+y);
 		}

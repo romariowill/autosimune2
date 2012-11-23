@@ -147,7 +147,7 @@
 			<attribute id="width" display_name="Width" value="150" type="int" />
 			<attribute id="height" display_name="Height" value="150" type="int" />
 		</projection>
-		<projection id="TissuePK1" type="value layer" />
-		<projection id="TissueMK1" type="value layer" />
+		<projection id="tissuePK1" type="value layer" />
+		<projection id="tissueMK1" type="value layer" />
 	</context>
 </context>

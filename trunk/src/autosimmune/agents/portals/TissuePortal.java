@@ -69,7 +69,7 @@ public class TissuePortal extends Portal {
 	
 	
 	/** funcao chamada pelo framework a cada tick */
-	@SuppressWarnings("deprecation")
+	//@SuppressWarnings("deprecation")
 	@ScheduledMethod(start = 0, interval = 1)
 	public void step(){
 		

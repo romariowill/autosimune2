@@ -56,7 +56,7 @@ abstract public class Cell extends Antigen {
 	 * @param citokine
 	 * @return double Valor da Citocina
 	 */
-	@SuppressWarnings("deprecation")
+//	@SuppressWarnings("deprecation")
 	public double getCitokineValue(CitokineNames citokine){
 		return zone.getCitokineValue(citokine, getX(), getY());
 	}
@@ -70,7 +70,7 @@ abstract public class Cell extends Antigen {
 	}
 	
 	//segue o gradiente de determinada citocina
-	@SuppressWarnings("deprecation")
+//	@SuppressWarnings("deprecation")
 	public void followCitokineByGradient(boolean randomWalk, CitokineNames ... citokine){
 		
 		//pega a posicao atual
