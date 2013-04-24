@@ -63,6 +63,17 @@ public enum EnvParameters {
 	TH_PROLIFERATION_COUNT ("thProliferationCount"),
 	TH_CK1_MEMORY_THRESHOLD ("thCK1MemoryThreshold"),
 	TH_MEMORY_PROLIFERATION_COUNT ("thMemoryProliferationCount"),
+	TH_CK2_APOPTOSIS_LIMIT("thCK2ApoptosisLimit"),
+	
+	/*Parametros das células TReg*/
+	
+	TREG_SELF_PATTERN ("tregSelfPattern"),
+	TREG_CK2_DURATION ("tregCK2Duration"),
+	TREG_LIFETIME ("tregLifetime"),
+	TREG_PROLIFERATION_COUNT ("tregProliferationCount"),
+	TREG_CK1_MEMORY_THRESHOLD ("tregCK1MemoryThreshold"),
+	TREG_MEMORY_PROLIFERATION_COUNT ("tregMemoryProliferationCount"),
+	
 	
 	/* Parametros das celulas CTL */
 	CTL_SELF_PATTERN ("cTLSelfPattern"),
@@ -93,7 +104,15 @@ public enum EnvParameters {
 	PORTAL_PK1_THRESHOLD ("portalPK1Threshold"),
 	PORTAL_MK1_THRESHOLD ("portalMK1Threshold"),
 	
+	/*Porcentagem de cada tipo de Célula*/
+	THCELL_PERCENTAGE ("thCellPercentage"),
+	CLTCELL_PERCENTAGE ("cltCellPercentage"),
+	BCELL_PERCENTAGE ("bCellPercentage"),
+	TREGCELL_PERCENTAGE ("tregCellPercentage"),
+	
+	
 	XFICTICIO ("ficticio");
+	
 	
 	
 	private String n;

@@ -8,15 +8,19 @@
     </entry>
     <entry>
       <string>autosimmune.agents.cells.ThCell</string>
-      <string>repast.simphony.visualizationOGL2D.DefaultStyleOGL2D</string>
+      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
     <entry>
       <string>autosimmune.agents.cells.BCell</string>
-      <string>repast.simphony.visualizationOGL2D.DefaultStyleOGL2D</string>
+      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
     <entry>
       <string>autosimmune.agents.cells.CTL</string>
-      <string>repast.simphony.visualizationOGL2D.DefaultStyleOGL2D</string>
+      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.TReg</string>
+      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
     <entry>
       <string>autosimmune.agents.portals.CirculationPortal</string>
@@ -30,15 +34,19 @@
     </entry>
     <entry>
       <string>autosimmune.agents.cells.ThCell</string>
-      <null/>
+      <string>autosimmune.agents.cells.ThCell.style_3.xml</string>
     </entry>
     <entry>
       <string>autosimmune.agents.cells.BCell</string>
-      <null/>
+      <string>autosimmune.agents.cells.BCell.style_2.xml</string>
     </entry>
     <entry>
       <string>autosimmune.agents.cells.CTL</string>
-      <null/>
+      <string>autosimmune.agents.cells.CTL.style_2.xml</string>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.TReg</string>
+      <string>autosimmune.agents.cells.TReg.style_5.xml</string>
     </entry>
     <entry>
       <string>autosimmune.agents.portals.CirculationPortal</string>
@@ -61,23 +69,27 @@
   <layerOrder>
     <entry>
       <string>autosimmune.agents.Antibody</string>
-      <int>0</int>
-    </entry>
-    <entry>
-      <string>autosimmune.agents.cells.ThCell</string>
-      <int>3</int>
-    </entry>
-    <entry>
-      <string>autosimmune.agents.cells.BCell</string>
-      <int>2</int>
-    </entry>
-    <entry>
-      <string>autosimmune.agents.cells.CTL</string>
       <int>1</int>
     </entry>
     <entry>
-      <string>autosimmune.agents.portals.CirculationPortal</string>
+      <string>autosimmune.agents.cells.ThCell</string>
       <int>4</int>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.BCell</string>
+      <int>3</int>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.CTL</string>
+      <int>2</int>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.TReg</string>
+      <int>0</int>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.portals.CirculationPortal</string>
+      <int>5</int>
     </entry>
   </layerOrder>
   <projections>

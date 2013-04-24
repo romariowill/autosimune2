@@ -172,7 +172,7 @@ public class Dendritic extends APC {
 		lifeInLynphnode+=10;
 		lymphnodeMK1Duration += 10;
 		if(antigenFromCell){
-			System.out.println("Célula dendrítica apresentou antígeno de células fagocitadas...");
+			//System.out.println("Célula dendrítica apresentou antígeno de células fagocitadas...");
 		}
 	}
 

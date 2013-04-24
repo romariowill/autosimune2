@@ -30,6 +30,12 @@
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
+				<parameter name="tregCellPercentage" displayName="TReg Cell Percentage" type="java.lang.String" 
+						defaultValue="1.25" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
+									
+		/>
 				<parameter name="thSelfPattern" displayName="Th Self Pattern" type="java.lang.String" 
 						defaultValue="11110000111100001111" 
 						isReadOnly="false" 
@@ -46,6 +52,18 @@
 						defaultValue="20" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="thCellPercentage" displayName="Th Cell Percentage" type="java.lang.String" 
+						defaultValue="25" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
+									
+		/>
+				<parameter name="tregSelfPattern" displayName="TReg Self Patter" type="java.lang.String" 
+						defaultValue="10000000000000000001" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
 									
 		/>
 				<parameter name="macrophageLifetime" displayName="Macrophage Lifetime" type="java.lang.Integer" 
@@ -120,6 +138,12 @@
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
+				<parameter name="tregCK2Duration" displayName="TReg CK2 Duration" type="int" 
+						defaultValue="50" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
 				<parameter name="tissueWidth" displayName="Tissue Width" type="java.lang.Integer" 
 						defaultValue="150" 
 						isReadOnly="false" 
@@ -144,6 +168,12 @@
 						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
 									
 		/>
+				<parameter name="thCK2ApoptosisLimit" displayName="Th CK2 Apoptosis Limit" type="int" 
+						defaultValue="10" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
 				<parameter name="dendriticLymphnodeLifetime" displayName="Dendritic Lymphnode Lifetime" type="java.lang.Integer" 
 						defaultValue="200" 
 						isReadOnly="false" 
@@ -166,6 +196,12 @@
 						defaultValue="0.5" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="tregCK1MemoryThreshold" displayName="TReg CK1 Memory Threshold" type="int" 
+						defaultValue="1" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
 				<parameter name="portalNKToSend" displayName="Portal NK To Send" type="java.lang.Integer" 
@@ -216,10 +252,22 @@
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
+				<parameter name="tregLifetime" displayName="TReg Lifetime" type="int" 
+						defaultValue="500" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
 				<parameter name="cTLTissueCK1Duration" displayName="CTL Tissue CK1 Duration" type="java.lang.Integer" 
 						defaultValue="50" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="bCellPercentage" displayName="B Cell Percentage" type="java.lang.String" 
+						defaultValue="60" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
 									
 		/>
 				<parameter name="CirculationGridwidth" displayName="CirculationGrid Width" type="java.lang.Integer" 
@@ -312,6 +360,18 @@
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
+				<parameter name="tregProliferationCount" displayName="TReg Proliferation Count" type="int" 
+						defaultValue="20" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="cltCellPercentage" displayName="CLT Cell Percentage" type="java.lang.String" 
+						defaultValue="15" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
+									
+		/>
 				<parameter name="macrophageSelfPattern" displayName="Macrophage Self Pattern" type="java.lang.String" 
 						defaultValue="00011100011100011100" 
 						isReadOnly="false" 
@@ -382,6 +442,12 @@
 						defaultValue="11000011111000000111" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
+									
+		/>
+				<parameter name="tregMemoryProliferationCount" displayName="TReg Memory Proliferation Count" type="int" 
+						defaultValue="10" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
 				<parameter name="virusVirulency" displayName="Virus Virulency" type="java.lang.Integer" 

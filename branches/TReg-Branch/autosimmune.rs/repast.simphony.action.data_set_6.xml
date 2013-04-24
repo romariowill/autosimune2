@@ -1,0 +1,55 @@
+<repast.simphony.data2.engine.DataSetDescriptor>
+  <name>Tissue Cells</name>
+  <type>AGGREGATE</type>
+  <inclTick>true</inclTick>
+  <inclBatchRun>false</inclBatchRun>
+  <inclRandomSeed>false</inclRandomSeed>
+  <scheduleParams>
+    <start>1.0</start>
+    <interval>1.0</interval>
+    <priority>-Infinity</priority>
+    <duration>-1.0</duration>
+    <frequency>REPEAT</frequency>
+  </scheduleParams>
+  <methodDataSources class="linked-hash-map">
+    <entry>
+      <string>ThMaxCells</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>ThMaxCells</id>
+        <className>autosimmune.agents.cells.ThCell</className>
+        <methodName>getThCount</methodName>
+        <aggType>MAX</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>ThMinCells</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>ThMinCells</id>
+        <className>autosimmune.agents.cells.ThCell</className>
+        <methodName>getThCount</methodName>
+        <aggType>MIN</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>TRegMaxCells</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>TRegMaxCells</id>
+        <className>autosimmune.agents.cells.TReg</className>
+        <methodName>gettRegCount</methodName>
+        <aggType>MAX</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>TRegMinCells</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>TRegMinCells</id>
+        <className>autosimmune.agents.cells.TReg</className>
+        <methodName>getNumCells</methodName>
+        <aggType>MIN</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+  </methodDataSources>
+  <countSources class="linked-hash-map"/>
+  <customNADataSources class="linked-hash-map"/>
+  <customAggDataSources class="linked-hash-map"/>
+</repast.simphony.data2.engine.DataSetDescriptor>

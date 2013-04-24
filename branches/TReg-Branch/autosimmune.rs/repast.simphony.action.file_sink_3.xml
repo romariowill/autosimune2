@@ -1,12 +1,15 @@
 <repast.simphony.data2.engine.FileSinkDescriptor>
-  <name>Tissuedata</name>
-  <dataSet>A Data SetTissue</dataSet>
-  <delimiter>,</delimiter>
-  <format>TABULAR</format>
+  <name>A File Sink</name>
+  <dataSet>Cells Data</dataSet>
+  <delimiter>-</delimiter>
+  <format>LINE</format>
   <sourceIds class="linked-hash-set">
-    <string>sumCell</string>
     <string>tick</string>
+    <string>TH Count</string>
+    <string>THCell Activated</string>
+    <string>TReg Count</string>
+    <string>TReg Activated</string>
   </sourceIds>
-  <fileName>ModelOutput.csv</fileName>
+  <fileName>C:\Users\Charles\Desktop\CellDataLymph</fileName>
   <addTimeStamp>true</addTimeStamp>
 </repast.simphony.data2.engine.FileSinkDescriptor>
