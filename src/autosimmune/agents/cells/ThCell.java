@@ -5,6 +5,7 @@ import repast.simphony.parameter.Parameter;
 import autosimmune.agents.portals.Portal;
 import autosimmune.defs.CitokineNames;
 import autosimmune.defs.EnvParameters;
+import autosimmune.defs.TRegCellStates;
 import autosimmune.defs.ThCellStates;
 import autosimmune.defs.ZoneNames;
 import autosimmune.env.Environment;
@@ -33,6 +34,9 @@ public class ThCell extends Cell implements Lymphocyte {
 	
 	private int memoryProliferationCount;
 	
+	private int ck2ApoptosisLimit;
+	
+	private static int thCount = 0;
 	
 	public ThCell(Environment z, int x, int y, Pattern target) {
 		super(z, x, y, new Pattern(Global.getInstance().getStringParameter(EnvParameters.TH_SELF_PATTERN)));
@@ -47,6 +51,8 @@ public class ThCell extends Cell implements Lymphocyte {
 		this.proliferationCount = Global.getInstance().getIntegerParameter(EnvParameters.TH_PROLIFERATION_COUNT);
 		this.ck1MemoryThreshold = Global.getInstance().getIntegerParameter(EnvParameters.TH_CK1_MEMORY_THRESHOLD);
 		this.memoryProliferationCount = Global.getInstance().getIntegerParameter(EnvParameters.TH_MEMORY_PROLIFERATION_COUNT);
+		this.ck2ApoptosisLimit = Global.getInstance().getIntegerParameter(EnvParameters.TH_CK2_APOPTOSIS_LIMIT);
+		this.setThCount(this.getThCount() + 1);
 	}
 	
 	private ThCell(Environment z, int x, int y, Pattern target, ThCellStates initialState) {
@@ -120,6 +126,15 @@ public class ThCell extends Cell implements Lymphocyte {
 					return;
 				}
 				
+				/*Caso a quantidade de CK2 seja maior que o valor especificado no 
+				 * parametro ck2ApoptosisLimit, a célula entra em Apoptose
+				 */	
+				//TODO Fazer estado de Anergia
+				if(getCitokineValue(CitokineNames.CK2) < ck2ApoptosisLimit){
+					this.state =  ThCellStates.APOPTOSIS;
+					return;
+				}
+				
 				//segue as APCs no linfonodo ou no tecido
 				followCitokineByGradient(true, CitokineNames.MK1);
 				
@@ -189,4 +204,12 @@ public class ThCell extends Cell implements Lymphocyte {
 		return (this.state.equals(ThCellStates.ACTIVE));
 	}
 	
+
+	public static int getThCount() {
+		return thCount;
+	}
+
+	public static void setThCount(int thCount) {
+		ThCell.thCount = thCount;
+	}
 }

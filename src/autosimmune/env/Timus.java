@@ -2,6 +2,7 @@ package autosimmune.env;
 
 import autosimmune.agents.cells.CTL;
 import autosimmune.agents.cells.ThCell;
+import autosimmune.agents.cells.TReg;
 import autosimmune.defs.EnvParameters;
 import autosimmune.defs.SELF;
 import autosimmune.utils.Affinity;
@@ -68,6 +69,13 @@ public class Timus {
 		
 		Pattern p = centralTolerance(patLen);		
 		return new ThCell(env, x, y, p);
+	}
+	
+	public static TReg createTRegCell(Environment env, int x, int y){
+		int patLen = Global.getInstance().getIntegerParameter(EnvParameters.RECEPTOR_PATTERN_LENGHT);
+		
+		Pattern p = centralTolerance(patLen);		
+		return new TReg(env, x, y, p);
 	}
 	
 	public static CTL createCTLCell(Environment env, int x, int y){

@@ -8,6 +8,7 @@ import autosimmune.agents.Agent;
 import autosimmune.agents.cells.BCell;
 import autosimmune.agents.cells.CTL;
 import autosimmune.agents.cells.ThCell;
+import autosimmune.agents.cells.TReg;
 import autosimmune.agents.portals.LymphnodePortal;
 import autosimmune.defs.CitokineNames;
 import autosimmune.defs.ZoneNames;
@@ -24,6 +25,8 @@ public class Lymphnode extends Environment {
 	private int numCTLCells;
 	
 	private int numBCells;
+	
+	private int numTRegCells;
 	
 	public Lymphnode() {
 		super(ZoneNames.Lymphnode);
@@ -60,9 +63,11 @@ public class Lymphnode extends Environment {
 		
 		//calcula a porcentagem de cada celula, de acordo com o numero maximo de celulas
 		//TODO parametrizar porcentagens de ThCell, CTL e BCell
-		numThCells = Math.round(numCells * 0.25f);
-		numCTLCells = Math.round(numCells * 0.15f);
-		numBCells = Math.round(numCells * 0.6f);
+		//Checar porcentagens
+		numThCells = (int) Math.round(numCells * Double.parseDouble(Global.getInstance().getStringParameter(EnvParameters.THCELL_PERCENTAGE))/100); //0.25
+		numCTLCells = (int) Math.round(numCells * Double.parseDouble(Global.getInstance().getStringParameter(EnvParameters.CLTCELL_PERCENTAGE))/100); //0.15
+	    numBCells = (int) Math.round(numCells * Double.parseDouble(Global.getInstance().getStringParameter(EnvParameters.BCELL_PERCENTAGE))/100); //0.6
+	    numTRegCells  = (int) Math.round(numCells * Double.parseDouble(Global.getInstance().getStringParameter(EnvParameters.TREGCELL_PERCENTAGE))/100); //0.125
 
 		//cria as celulas Th
 		for(int i = 0; i < numThCells; i++){
@@ -87,6 +92,15 @@ public class Lymphnode extends Environment {
 			BCell b = BoneMarrow.createBCell(this, x, y);
 			addAgent(b);
 		}
+		
+		//Cria celulas TReg
+		for(int i = 0; i < numTRegCells; i++){
+			int x = RandomUtils.getRandomFromTo(0, w);
+			int y = RandomUtils.getRandomFromTo(0, h);
+			TReg tr = Timus.createTRegCell(this, x, y);
+			addAgent(tr);
+		}
+		
 		
 		System.out.println("Terminou de criar ambiente Lymphnode");
 	}

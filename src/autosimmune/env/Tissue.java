@@ -39,6 +39,7 @@ public class Tissue extends Environment {
 		createCitokineLayer(CitokineNames.PK1);
 		createCitokineLayer(CitokineNames.MK1);
 		createCitokineLayer(CitokineNames.CK1);
+		createCitokineLayer(CitokineNames.CK2);
 		
 		//numero de celular dendriticas a serem adicionadas
 		int numTotalDendriticsCells = global.getIntegerParameter(EnvParameters.DENDRITIC_CELLS_COUNT);

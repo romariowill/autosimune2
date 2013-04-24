@@ -1,5 +1,5 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>A Data SetTissue</name>
+  <name>Lymph Cells</name>
   <type>AGGREGATE</type>
   <inclTick>true</inclTick>
   <inclBatchRun>false</inclBatchRun>
@@ -13,12 +13,21 @@
   </scheduleParams>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>sumCell</string>
+      <string>ThCount</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>sumCell</id>
-        <className>autosimmune.agents.cells.Cell</className>
-        <methodName>getNumCells</methodName>
-        <aggType>SUM</aggType>
+        <id>ThCount</id>
+        <className>autosimmune.agents.cells.ThCell</className>
+        <methodName>getThCount</methodName>
+        <aggType>MAX</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>TRegCount</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>TRegCount</id>
+        <className>autosimmune.agents.cells.TReg</className>
+        <methodName>gettRegCount</methodName>
+        <aggType>MAX</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>
