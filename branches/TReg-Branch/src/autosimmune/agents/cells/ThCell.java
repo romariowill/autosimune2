@@ -37,6 +37,7 @@ public class ThCell extends Cell implements Lymphocyte {
 	private int ck2ApoptosisLimit;
 	
 	private static int thCount = 0;
+	private static int thActivatedCount = 0;
 	
 	public ThCell(Environment z, int x, int y, Pattern target) {
 		super(z, x, y, new Pattern(Global.getInstance().getStringParameter(EnvParameters.TH_SELF_PATTERN)));
@@ -85,7 +86,8 @@ public class ThCell extends Cell implements Lymphocyte {
 	public void step(){
 
 		tick();
-		
+	    System.out.println("ThCount: " + this.getThCount());
+	    System.out.println("ThActive: " + this.getThActiveCount());
 		switch(state){
 			
 			case INACTIVE: {
@@ -98,6 +100,7 @@ public class ThCell extends Cell implements Lymphocyte {
 					if (Affinity.match(target, antigen)){
 						d.contact(true);
 						this.state = ThCellStates.ACTIVE;
+						this.setThActiveCount(this.getThActiveCount()+1);
 						for(int i = 0; i < proliferationCount; i++){
 							ThCell th = new ThCell(this.zone, getX()+1, getY(), this.target, this.state);
 							this.zone.add(th);
@@ -123,6 +126,7 @@ public class ThCell extends Cell implements Lymphocyte {
 				
 				if(getCitokineValue(CitokineNames.CK1) < ck1MemoryThreshold){
 					this.state =  ThCellStates.MEMORY;
+					this.setThActiveCount(this.getThActiveCount()-1);
 					return;
 				}
 				
@@ -132,6 +136,7 @@ public class ThCell extends Cell implements Lymphocyte {
 				//TODO Fazer estado de Anergia
 				if(getCitokineValue(CitokineNames.CK2) < ck2ApoptosisLimit){
 					this.state =  ThCellStates.APOPTOSIS;
+					this.setThActiveCount(this.getThActiveCount()-1);
 					return;
 				}
 				
@@ -154,6 +159,7 @@ public class ThCell extends Cell implements Lymphocyte {
 				
 				if(lifetime <= 0){
 					this.state = ThCellStates.APOPTOSIS;
+					this.setThActiveCount(this.getThActiveCount()-1);
 				} else {
 					lifetime--;
 				}
@@ -170,6 +176,7 @@ public class ThCell extends Cell implements Lymphocyte {
 					if (Affinity.match(target, antigen)){
 						d.contact(true);
 						this.state = ThCellStates.ACTIVE;
+						this.setThActiveCount(this.getThActiveCount()+1);
 						for(int i = 0; i < memoryProliferationCount; i++){
 							ThCell th = new ThCell(this.zone, getX()+1, getY(), this.target, this.state);
 							this.zone.add(th);
@@ -211,5 +218,13 @@ public class ThCell extends Cell implements Lymphocyte {
 
 	public static void setThCount(int thCount) {
 		ThCell.thCount = thCount;
+	}
+	
+	public static int getThActiveCount() {
+		return thActivatedCount;
+	}
+
+	public static void setThActiveCount(int thCount) {
+		ThCell.thActivatedCount = thCount;
 	}
 }
