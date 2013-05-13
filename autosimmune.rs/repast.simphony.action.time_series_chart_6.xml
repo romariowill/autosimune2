@@ -20,6 +20,30 @@
   <showGrid>true</showGrid>
   <seriesIds>
     <entry>
+      <string>Th Activated</string>
+      <SeriesData>
+        <label>Th Activated</label>
+        <color>
+          <red>255</red>
+          <green>0</green>
+          <blue>255</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Treg Activated</string>
+      <SeriesData>
+        <label>Treg Activated</label>
+        <color>
+          <red>0</red>
+          <green>255</green>
+          <blue>0</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
       <string>TRegCount</string>
       <SeriesData>
         <label>TRegCount</label>

@@ -482,3 +482,63 @@
 2013-05-10 11:07:11,702 - Velocimacro : autoload off  : VM system will not automatically reload global library macros
 2013-05-10 11:07:11,702 - Velocimacro : initialization complete.
 2013-05-10 11:07:11,702 - Velocity successfully started.
+2013-05-13 13:42:52,994 - SimpleLog4JLogSystem initialized using logfile 'velocity.log'
+2013-05-13 13:42:53,009 - ************************************************************** 
+2013-05-13 13:42:53,009 - ************************************************************** 
+2013-05-13 13:42:53,010 - Starting Jakarta Velocity v1.4
+2013-05-13 13:42:53,010 - Starting Jakarta Velocity v1.4
+2013-05-13 13:42:53,010 - RuntimeInstance initializing.
+2013-05-13 13:42:53,010 - RuntimeInstance initializing.
+2013-05-13 13:42:53,010 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2013-05-13 13:42:53,010 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2013-05-13 13:42:53,010 - Trying to use logger class org.apache.velocity.runtime.log.SimpleLog4JLogSystem
+2013-05-13 13:42:53,010 - Trying to use logger class org.apache.velocity.runtime.log.SimpleLog4JLogSystem
+2013-05-13 13:42:53,010 - Using logger class org.apache.velocity.runtime.log.SimpleLog4JLogSystem
+2013-05-13 13:42:53,010 - Using logger class org.apache.velocity.runtime.log.SimpleLog4JLogSystem
+2013-05-13 13:42:53,012 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2013-05-13 13:42:53,012 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2013-05-13 13:42:53,017 - Resource Loader Instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2013-05-13 13:42:53,017 - Resource Loader Instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2013-05-13 13:42:53,017 - ClasspathResourceLoader : initialization starting.
+2013-05-13 13:42:53,017 - ClasspathResourceLoader : initialization starting.
+2013-05-13 13:42:53,017 - ClasspathResourceLoader : initialization complete.
+2013-05-13 13:42:53,017 - ClasspathResourceLoader : initialization complete.
+2013-05-13 13:42:53,018 - ResourceCache : initialized. (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2013-05-13 13:42:53,018 - Default ResourceManager initialization complete.
+2013-05-13 13:42:53,018 - ResourceCache : initialized. (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2013-05-13 13:42:53,018 - Default ResourceManager initialization complete.
+2013-05-13 13:42:53,019 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2013-05-13 13:42:53,019 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2013-05-13 13:42:53,020 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2013-05-13 13:42:53,020 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2013-05-13 13:42:53,022 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2013-05-13 13:42:53,023 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2013-05-13 13:42:53,024 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2013-05-13 13:42:53,024 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2013-05-13 13:42:53,024 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2013-05-13 13:42:53,024 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2013-05-13 13:42:53,047 - Created: 20 parsers.
+2013-05-13 13:42:53,052 - Velocimacro : initialization starting.
+2013-05-13 13:42:53,052 - Velocimacro : adding VMs from VM library template : VM_global_library.vm
+2013-05-13 13:42:53,052 - Velocimacro : adding VMs from VM library template : VM_global_library.vm
+2013-05-13 13:42:53,058 - ResourceManager : unable to find resource 'VM_global_library.vm' in any resource loader.
+2013-05-13 13:42:53,058 - Velocimacro : error using  VM library template VM_global_library.vm : org.apache.velocity.exception.ResourceNotFoundException: Unable to find resource 'VM_global_library.vm'
+2013-05-13 13:42:53,058 - ResourceManager : unable to find resource 'VM_global_library.vm' in any resource loader.
+2013-05-13 13:42:53,058 - Velocimacro :  VM library template macro registration complete.
+2013-05-13 13:42:53,058 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2013-05-13 13:42:53,058 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+ceNotFoundException: Unable to find resource 'VM_global_library.vm'
+2013-05-13 13:42:53,059 - Velocimacro : allowInlineLocal = false : VMs defined inline will be  global in scope if allowed.
+2013-05-13 13:42:53,059 - Velocimacro : messages on  : VM system will output logging messages
+2013-05-13 13:42:53,059 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2013-05-13 13:42:53,059 - Velocimacro : autoload off  : VM system will not automatically reload global library macros
+2013-05-13 13:42:53,059 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2013-05-13 13:42:53,059 - Velocimacro : initialization complete.
+2013-05-13 13:42:53,059 - Velocity successfully started.
+ false : VMs defined inline will be  global in scope if allowed.
+2013-05-13 13:42:53,059 - Velocimacro : messages on  : VM system will output logging messages
+2013-05-13 13:42:53,059 - Velocimacro : autoload off  : VM system will not automatically reload global library macros
+2013-05-13 13:42:53,059 - Velocimacro : initialization complete.
+2013-05-13 13:42:53,059 - Velocity successfully started.
+2013-05-13 13:43:27,341 - ResourceManager : found repast/simphony/scenario/Scenario.vt with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2013-05-13 13:43:27,491 - ResourceManager : found repast/simphony/parameter/parameters.vt with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
