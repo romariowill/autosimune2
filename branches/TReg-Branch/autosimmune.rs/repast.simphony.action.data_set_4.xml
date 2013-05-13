@@ -1,5 +1,5 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>Tissue Cells</name>
+  <name>Lymph Cells 2</name>
   <type>AGGREGATE</type>
   <inclTick>true</inclTick>
   <inclBatchRun>false</inclBatchRun>
@@ -13,38 +13,38 @@
   </scheduleParams>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>ThMaxCells</string>
+      <string>Treg Activated</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>ThMaxCells</id>
-        <className>autosimmune.agents.cells.ThCell</className>
-        <methodName>getThCount</methodName>
-        <aggType>MAX</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>ThMinCells</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>ThMinCells</id>
-        <className>autosimmune.agents.cells.ThCell</className>
-        <methodName>getThCount</methodName>
+        <id>Treg Activated</id>
+        <className>autosimmune.agents.cells.TReg</className>
+        <methodName>gettRegActiveCount</methodName>
         <aggType>MIN</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>TRegMaxCells</string>
+      <string>Th Activated</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>TRegMaxCells</id>
-        <className>autosimmune.agents.cells.TReg</className>
-        <methodName>gettRegCount</methodName>
-        <aggType>MAX</aggType>
+        <id>Th Activated</id>
+        <className>autosimmune.agents.cells.ThCell</className>
+        <methodName>getThActiveCount</methodName>
+        <aggType>MIN</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>TRegMinCells</string>
+      <string>ThCount</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>TRegMinCells</id>
+        <id>ThCount</id>
         <className>autosimmune.agents.cells.TReg</className>
-        <methodName>getNumCells</methodName>
+        <methodName>gettRegCount</methodName>
+        <aggType>MIN</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>TregCount</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>TregCount</id>
+        <className>autosimmune.agents.cells.ThCell</className>
+        <methodName>getThCount</methodName>
         <aggType>MIN</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>

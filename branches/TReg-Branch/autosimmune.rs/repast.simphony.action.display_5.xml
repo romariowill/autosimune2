@@ -19,11 +19,11 @@
       <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
     <entry>
-      <string>autosimmune.agents.cells.TReg</string>
+      <string>autosimmune.agents.portals.Portal</string>
       <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
     <entry>
-      <string>autosimmune.agents.portals.Portal</string>
+      <string>autosimmune.agents.cells.TReg</string>
       <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
   </styles>
@@ -45,12 +45,12 @@
       <string>autosimmune.agents.cells.CTL.style_3.xml</string>
     </entry>
     <entry>
-      <string>autosimmune.agents.cells.TReg</string>
-      <string>autosimmune.agents.cells.TReg.style_4.xml</string>
-    </entry>
-    <entry>
       <string>autosimmune.agents.portals.Portal</string>
       <string>autosimmune.agents.portals.Portal.style_3.xml</string>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.TReg</string>
+      <string>autosimmune.agents.cells.TReg.style_4.xml</string>
     </entry>
   </editedStyles>
   <netStyles/>
@@ -84,12 +84,12 @@
       <int>2</int>
     </entry>
     <entry>
-      <string>autosimmune.agents.cells.TReg</string>
-      <int>0</int>
-    </entry>
-    <entry>
       <string>autosimmune.agents.portals.Portal</string>
       <int>1</int>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.TReg</string>
+      <int>0</int>
     </entry>
   </layerOrder>
   <projections>
