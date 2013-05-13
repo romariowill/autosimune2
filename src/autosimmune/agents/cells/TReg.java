@@ -33,6 +33,7 @@ public class TReg extends Cell implements Lymphocyte{
 	private int memoryProliferationCount;
 	
 	static private int tRegCount = 0;
+	static private int tRegActivated = 0;
 	
 	
 	//Setando o construtor da classe mae 
@@ -92,6 +93,8 @@ public class TReg extends Cell implements Lymphocyte{
 
 		tick();
 		
+		System.out.println("TregCount: " + this.gettRegCount());
+	    System.out.println("TregActive: " + this.gettRegActiveCount());
 		switch(state){
 			
 			case INACTIVE: {
@@ -104,6 +107,7 @@ public class TReg extends Cell implements Lymphocyte{
 					if (Affinity.match(target, antigen)){
 						d.contact(true);
 						this.state = TRegCellStates.ACTIVE;
+						this.settRegActiveCount(this.gettRegActiveCount() +1);
 						System.out.println("TReg Ativado");
 						for(int i = 0; i < proliferationCount; i++){
 							TReg treg = new TReg(this.zone, getX()+1, getY(), this.target, this.state);
@@ -130,6 +134,7 @@ public class TReg extends Cell implements Lymphocyte{
 				
 				if(getCitokineValue(CitokineNames.CK1) < ck1MemoryThreshold){
 					this.state =  TRegCellStates.MEMORY;
+					this.settRegActiveCount(this.gettRegActiveCount() -1);
 					return;
 				}
 				
@@ -154,6 +159,8 @@ public class TReg extends Cell implements Lymphocyte{
 				
 				if(lifetime <= 0){
 					this.state = TRegCellStates.APOPTOSIS;
+					this.settRegCount(this.tRegCount-1);
+					this.settRegActiveCount(this.gettRegActiveCount() -1);
 				} else {
 					lifetime--;
 				}
@@ -170,6 +177,7 @@ public class TReg extends Cell implements Lymphocyte{
 					if (Affinity.match(target, antigen)){
 						d.contact(true);
 						this.state = TRegCellStates.ACTIVE;
+						this.settRegActiveCount(this.gettRegActiveCount() +1);
 						for(int i = 0; i < memoryProliferationCount; i++){
 							TReg treg = new TReg(this.zone, getX()+1, getY(), this.target, this.state);
 							this.zone.add(treg);
@@ -197,4 +205,11 @@ public class TReg extends Cell implements Lymphocyte{
 		TReg.tRegCount = tReg;
 	}
 	
+	public static int gettRegActiveCount() {
+		return tRegActivated;
+	}
+
+	public static void settRegActiveCount(int tReg) {
+		TReg.tRegActivated = tReg;
+	}
 }

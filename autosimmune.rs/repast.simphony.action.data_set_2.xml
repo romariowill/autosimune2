@@ -30,6 +30,24 @@
         <aggType>MAX</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
+    <entry>
+      <string>Treg Activated</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Treg Activated</id>
+        <className>autosimmune.agents.cells.TReg</className>
+        <methodName>gettRegActiveCount</methodName>
+        <aggType>MAX</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Th Activated</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Th Activated</id>
+        <className>autosimmune.agents.cells.ThCell</className>
+        <methodName>getThActiveCount</methodName>
+        <aggType>MAX</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
   </methodDataSources>
   <countSources class="linked-hash-map"/>
   <customNADataSources class="linked-hash-map"/>
