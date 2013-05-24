@@ -1,0 +1,6 @@
+"Tick";"VirusCount";"NKCount";"HealthPC";"MacrophageCount";"AntibodyCount";"ThCellCount";"BCellCount";"CTLCount";"EspecificCTLCount";"EspecificBCellCount";"EspecificAgCount";"EspecificThCellCount";"NonEspecificAgCount";"NonEspecificCTLCount";"NonEspecificThCellCount";"NonEspecificBCellCount";"AutoimmuneCTLCount";"AutoimmuneCTLCellKillCount";"TissueAutoimmuneCTLCount"
+1.0;0;0;9044;0;0;156;375;94;3;0;0;0;0;91;156;375;46;0;0
+11.0;0;0;9044;0;0;156;375;94;3;0;0;0;0;91;156;375;46;0;0
+21.0;40;0;9031;0;0;156;375;94;3;0;0;0;0;91;156;375;46;0;0
+31.0;52;2;9005;10;0;156;375;94;3;0;0;0;0;91;156;375;46;0;0
+41.0;52;4;8992;38;0;156;375;94;3;0;0;0;0;91;156;375;46;0;0
