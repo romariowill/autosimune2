@@ -15,6 +15,8 @@
 		value="350" type="int" />
 	<attribute id="virusSelfPattern" display_name="Virus Self Pattern"
 		value="01010101010101010101" type="string" />
+	<attribute id="tcruziSelfPattern" display_name="TCruzi Self Pattern"
+		value="11111111111111111111" type="string" />
 	<attribute id="selfPatternLenght" display_name="Self Pattern Lenght"
 		value="20" type="int" />
 	<attribute id="receptorPatternLenght" display_name="Receptor Pattern Lenght"
@@ -26,6 +28,12 @@
 	<attribute id="virusVirulency" display_name="Virus Virulency"
 		value="1" type="int" />
 	<attribute id="virusLatency" display_name="Virus Latency"
+		value="10" type="int" />
+	<attribute id="tcruziTargetPattern" display_name="TCruzi Target Pattern"
+		value="10000000001111111111" type="string" />
+	<attribute id="tcruziVirulency" display_name="TCruzi Virulency"
+		value="1" type="int" />
+	<attribute id="tcruziLatency" display_name="TCruzi Latency"
 		value="10" type="int" />
 	<attribute id="tissueQuarter" display_name="Tissue Quarter"
 		value="9" type="int" />

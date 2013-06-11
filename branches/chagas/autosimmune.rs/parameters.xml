@@ -6,6 +6,12 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
+				<parameter name="tcruziVirulency" displayName="TCruzi Virulency" type="java.lang.Integer" 
+						defaultValue="1" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
 				<parameter name="randomSeed" displayName="Default Random Seed" type="int" 
 						defaultValue="__NULL__"
 						isReadOnly="false" 
@@ -54,14 +60,14 @@
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
-				<parameter name="cTLLymphnodeLifetime" displayName="CTL Lymphnode Lifetime" type="java.lang.Integer" 
-						defaultValue="500" 
+				<parameter name="tcruziSelfPattern" displayName="TCruzi Self Pattern" type="java.lang.String" 
+						defaultValue="11111111111111111111" 
 						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
 									
 		/>
-				<parameter name="TissueGridheight" displayName="TissueGrid Height" type="java.lang.Integer" 
-						defaultValue="150" 
+				<parameter name="cTLLymphnodeLifetime" displayName="CTL Lymphnode Lifetime" type="java.lang.Integer" 
+						defaultValue="500" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
@@ -70,6 +76,12 @@
 						defaultValue="0.5" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="TissueGridheight" displayName="TissueGrid Height" type="java.lang.Integer" 
+						defaultValue="150" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
 				<parameter name="selfPatternLenght" displayName="Self Pattern Lenght" type="java.lang.Integer" 
@@ -132,16 +144,16 @@
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
-				<parameter name="affinityThreshold" displayName="Affinity Threshold" type="java.lang.Integer" 
-						defaultValue="5" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
-									
-		/>
 				<parameter name="nKSelfPattern" displayName="NK Self Pattern" type="java.lang.String" 
 						defaultValue="00000111110000011111" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
+									
+		/>
+				<parameter name="affinityThreshold" displayName="Affinity Threshold" type="java.lang.Integer" 
+						defaultValue="5" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
 				<parameter name="dendriticLymphnodeLifetime" displayName="Dendritic Lymphnode Lifetime" type="java.lang.Integer" 
@@ -178,6 +190,12 @@
 						defaultValue="10" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="tcruziTargetPattern" displayName="TCruzi Target Pattern" type="java.lang.String" 
+						defaultValue="10000000001111111111" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
 									
 		/>
 				<parameter name="portalPK1Threshold" displayName="Portal PK1 Threshold" type="java.lang.Double" 
@@ -282,14 +300,14 @@
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
-				<parameter name="circulationWidth" displayName="Circulation Width" type="java.lang.Integer" 
-						defaultValue="250" 
+				<parameter name="thCK1Duration" displayName="Th CK1 Duration" type="java.lang.Integer" 
+						defaultValue="50" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
-				<parameter name="thCK1Duration" displayName="Th CK1 Duration" type="java.lang.Integer" 
-						defaultValue="50" 
+				<parameter name="circulationWidth" displayName="Circulation Width" type="java.lang.Integer" 
+						defaultValue="250" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
@@ -358,6 +376,12 @@
 						defaultValue="00000000001111111111" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
+									
+		/>
+				<parameter name="tcruziLatency" displayName="TCruzi Latency" type="java.lang.Integer" 
+						defaultValue="10" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
 				<parameter name="cTLSelfPattern" displayName="CTL Self Pattern" type="java.lang.String" 

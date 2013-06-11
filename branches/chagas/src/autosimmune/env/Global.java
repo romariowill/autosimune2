@@ -11,6 +11,7 @@ import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.parameter.Parameters;
 import autosimmune.agents.Agent;
+import autosimmune.agents.pathogens.TCruzi;
 import autosimmune.agents.pathogens.Virus;
 import autosimmune.defs.EnvParameters;
 import autosimmune.defs.PAMPS;
@@ -109,6 +110,18 @@ public class Global extends DefaultContext<Agent>  implements ContextBuilder<Obj
 			int vy = RandomUtils.getRandomFromTo(0, ts.getHeight());
 			for(int i = 0; i < 40; i++){
 				ts.addAgent(new Virus(ts, vx, vy));
+				//ts.addAgent(new Virus(ts, 75, 75));
+			}
+		}
+		
+		/*add Tcruzis*/
+		if(ticks == 5){
+			Tissue ts = (Tissue) Environment.getEnvironment(ZoneNames.Tissue);
+			
+			for(int i = 0; i < 100; i++){
+				int vx = RandomUtils.getRandomFromTo(0, ts.getWidth());
+				int vy = RandomUtils.getRandomFromTo(0, ts.getHeight());
+				ts.addAgent(new TCruzi(ts, vx, vy));
 				//ts.addAgent(new Virus(ts, 75, 75));
 			}
 		}

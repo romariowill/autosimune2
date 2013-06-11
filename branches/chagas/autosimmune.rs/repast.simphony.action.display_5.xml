@@ -3,6 +3,10 @@
   <type>TWO_D</type>
   <styles>
     <entry>
+      <string>autosimmune.agents.pathogens.TCruzi</string>
+      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
+    </entry>
+    <entry>
       <string>autosimmune.agents.Antibody</string>
       <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
@@ -48,6 +52,10 @@
     </entry>
   </styles>
   <editedStyles>
+    <entry>
+      <string>autosimmune.agents.pathogens.TCruzi</string>
+      <string>autosimmune.agents.pathogens.TCruzi.style_1.xml</string>
+    </entry>
     <entry>
       <string>autosimmune.agents.Antibody</string>
       <string>autosimmune.agents.Antibody.style_0.xml</string>
@@ -109,48 +117,52 @@
   <layoutInterval>0</layoutInterval>
   <layerOrder>
     <entry>
-      <string>autosimmune.agents.Antibody</string>
-      <int>10</int>
-    </entry>
-    <entry>
-      <string>autosimmune.agents.cells.Dendritic</string>
-      <int>5</int>
-    </entry>
-    <entry>
-      <string>autosimmune.agents.cells.ThCell</string>
-      <int>9</int>
-    </entry>
-    <entry>
-      <string>autosimmune.agents.cells.BCell</string>
-      <int>8</int>
-    </entry>
-    <entry>
-      <string>autosimmune.defs.TissuePortalStates</string>
+      <string>autosimmune.agents.pathogens.TCruzi</string>
       <int>0</int>
     </entry>
     <entry>
-      <string>autosimmune.agents.cells.NK</string>
+      <string>autosimmune.agents.Antibody</string>
+      <int>11</int>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.Dendritic</string>
       <int>6</int>
     </entry>
     <entry>
-      <string>autosimmune.agents.cells.PC</string>
+      <string>autosimmune.agents.cells.ThCell</string>
+      <int>10</int>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.BCell</string>
+      <int>9</int>
+    </entry>
+    <entry>
+      <string>autosimmune.defs.TissuePortalStates</string>
       <int>1</int>
     </entry>
     <entry>
-      <string>autosimmune.agents.portals.TissuePortal</string>
-      <int>2</int>
-    </entry>
-    <entry>
-      <string>autosimmune.agents.pathogens.Virus</string>
-      <int>3</int>
-    </entry>
-    <entry>
-      <string>autosimmune.agents.cells.CTL</string>
+      <string>autosimmune.agents.cells.NK</string>
       <int>7</int>
     </entry>
     <entry>
-      <string>autosimmune.agents.cells.Macrophage</string>
+      <string>autosimmune.agents.cells.PC</string>
+      <int>2</int>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.portals.TissuePortal</string>
+      <int>3</int>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.pathogens.Virus</string>
       <int>4</int>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.CTL</string>
+      <int>8</int>
+    </entry>
+    <entry>
+      <string>autosimmune.agents.cells.Macrophage</string>
+      <int>5</int>
     </entry>
   </layerOrder>
   <projections>
