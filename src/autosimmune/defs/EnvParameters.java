@@ -44,6 +44,12 @@ public enum EnvParameters {
 	VIRUS_VIRULENCY ("virusVirulency"),
 	VIRUS_LATENCY ("virusLatency"),
 	
+	/* Parametros dos TCRUZIs */
+	TCRUZI_SELF_PATTERN ("tcruziSelfPattern"),
+	TCRUZI_TARGET_PATTERN ("tcruziTargetPattern"),
+	TCRUZI_VIRULENCY ("tcruziVirulency"),
+	TCRUZI_LATENCY ("tcruziLatency"),
+	
 	/* Parametros das celulas PC */
 	PC_SELF_PATTERN ("pcSelfPattern"),
 	PC_STRESS_TRHESHOLD ("pCStressThreshold"),
