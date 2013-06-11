@@ -8,6 +8,8 @@ import autosimmune.agents.Antigen;
 import autosimmune.agents.cells.Cell;
 import autosimmune.agents.cells.PC;
 import autosimmune.defs.EnvParameters;
+import autosimmune.defs.MacrophageStates;
+import autosimmune.defs.TCruziStates;
 import autosimmune.env.Environment;
 import autosimmune.env.Global;
 import autosimmune.utils.Affinity;
@@ -29,6 +31,9 @@ public class TCruzi extends Antigen{
 	
 	/** numero de vezes que multiplicou */
 	private int numMult = 0;
+	
+	/** Representação dos estados internos do parasita*/
+	private TCruziStates state;
 	
 	/**
 	 * Construtor do TCruzi

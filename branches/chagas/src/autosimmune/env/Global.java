@@ -118,7 +118,7 @@ public class Global extends DefaultContext<Agent>  implements ContextBuilder<Obj
 		if(ticks == 5){
 			Tissue ts = (Tissue) Environment.getEnvironment(ZoneNames.Tissue);
 			
-			for(int i = 0; i < 100; i++){
+			for(int i = 0; i < 10; i++){
 				int vx = RandomUtils.getRandomFromTo(0, ts.getWidth());
 				int vy = RandomUtils.getRandomFromTo(0, ts.getHeight());
 				ts.addAgent(new TCruzi(ts, vx, vy));
