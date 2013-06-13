@@ -1,8 +1,11 @@
 package autosimmune.agents.cells;
 
+import java.util.ArrayList;
+
 import repast.simphony.annotate.AgentAnnot;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import autosimmune.agents.Antibody;
+import autosimmune.agents.pathogens.TCruzi;
 import autosimmune.agents.pathogens.Virus;
 import autosimmune.defs.CitokineNames;
 import autosimmune.defs.EnvParameters;
@@ -44,6 +47,7 @@ public class Macrophage extends APC {
 	private void initiateParameters(){
 		this.lifetime = Global.getInstance().getIntegerParameter(EnvParameters.MACROPHAGE_LIFETIME);
 		this.mk1duration = Global.getInstance().getIntegerParameter(EnvParameters.MACROPHAGE_MK1_DURATION);
+		this.tcruzis = new ArrayList<TCruzi>();
 	}
 	
 	/**
@@ -124,10 +128,16 @@ public class Macrophage extends APC {
 					releaseCitokine(CitokineNames.MK1);
 					mk1duration--;
 				}
-				
+				/*remove Células PC mortas*/
 				for(PC pc: getEspecificNeighbors(PC.class)){
 					if (pc.isDead()){
 						pc.clean();
+					}
+				}
+				/*remove Células Macrophage mortas*/
+				for(Macrophage ma: getEspecificNeighbors(Macrophage.class)){
+					if (ma.isDead()){
+						ma.clean();
 					}
 				}
 				
@@ -152,6 +162,15 @@ public class Macrophage extends APC {
 				super.apoptosis();
 				this.die();
 			}break;
+		
+			case NECROSIS: {
+				//TODO parametrizar taxa de liberacao da citocina NECROTIC por celula morta
+				if(getTicks() % 20 == 0){
+					releaseCitokine(CitokineNames.NECROTIC);
+				}
+				if(this.tcruzis.size() >= 512)
+					removeParasites();
+			}break;
 		}
 	}
 
@@ -167,5 +186,22 @@ public class Macrophage extends APC {
 		lifetime+=10;
 	}
 	
+	/**
+	 * Informa se a célula está morta
+	 * @return
+	 */
+	public boolean isDead() {
+		return (this.state == MacrophageStates.APOPTOSIS || this.state == MacrophageStates.NECROSIS);
+	}
+
+	/**
+	 * Remove uma celula morta do tecido.
+	 * Funcao chamada quando um macrofago remove a celula morta
+	 */
+	@Override
+	public void clean() {
+		removeParasites();
+		zone.removeAgent(this);
+	}
 
 }

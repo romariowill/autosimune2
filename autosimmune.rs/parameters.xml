@@ -193,7 +193,7 @@
 									
 		/>
 				<parameter name="tcruziTargetPattern" displayName="TCruzi Target Pattern" type="java.lang.String" 
-						defaultValue="10000000001111111111" 
+						defaultValue="00011100011100011100" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
 									

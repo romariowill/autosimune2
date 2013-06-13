@@ -11,6 +11,7 @@ import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.parameter.Parameters;
 import autosimmune.agents.Agent;
+import autosimmune.agents.cells.Macrophage;
 import autosimmune.agents.pathogens.TCruzi;
 import autosimmune.agents.pathogens.Virus;
 import autosimmune.defs.EnvParameters;
@@ -104,7 +105,7 @@ public class Global extends DefaultContext<Agent>  implements ContextBuilder<Obj
 		
 		ticks++;
 		
-		if(ticks == 15){
+		/*if(ticks == 15){
 			Tissue ts = (Tissue) Environment.getEnvironment(ZoneNames.Tissue);
 			int vx = RandomUtils.getRandomFromTo(0, ts.getWidth());
 			int vy = RandomUtils.getRandomFromTo(0, ts.getHeight());
@@ -112,17 +113,27 @@ public class Global extends DefaultContext<Agent>  implements ContextBuilder<Obj
 				ts.addAgent(new Virus(ts, vx, vy));
 				//ts.addAgent(new Virus(ts, 75, 75));
 			}
-		}
+		}*/
 		
 		/*add Tcruzis*/
 		if(ticks == 5){
 			Tissue ts = (Tissue) Environment.getEnvironment(ZoneNames.Tissue);
 			
-			for(int i = 0; i < 10; i++){
+			for(int i = 0; i < 20; i++){
 				int vx = RandomUtils.getRandomFromTo(0, ts.getWidth());
 				int vy = RandomUtils.getRandomFromTo(0, ts.getHeight());
 				ts.addAgent(new TCruzi(ts, vx, vy));
-				//ts.addAgent(new Virus(ts, 75, 75));
+			}
+		}
+		
+		/*add Macrophages*/
+		if(ticks == 10){
+			Tissue ts = (Tissue) Environment.getEnvironment(ZoneNames.Tissue);
+			
+			for(int i = 0; i < 20; i++){
+				int vx = RandomUtils.getRandomFromTo(0, ts.getWidth());
+				int vy = RandomUtils.getRandomFromTo(0, ts.getHeight());
+				ts.addAgent(new Macrophage(ts, vx, vy));
 			}
 		}
 		

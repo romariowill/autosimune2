@@ -1,5 +1,5 @@
 package autosimmune.defs;
 
 public enum MacrophageStates {
-	NORMAL, INFLAMATORY, ACTIVE, APOPTOSIS 
+	NORMAL, INFLAMATORY, ACTIVE, APOPTOSIS, NECROSIS 
 }
