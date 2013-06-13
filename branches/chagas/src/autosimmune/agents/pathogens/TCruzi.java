@@ -6,9 +6,8 @@ import repast.simphony.annotate.AgentAnnot;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import autosimmune.agents.Antigen;
 import autosimmune.agents.cells.Cell;
-import autosimmune.agents.cells.PC;
+import autosimmune.agents.cells.Macrophage;
 import autosimmune.defs.EnvParameters;
-import autosimmune.defs.MacrophageStates;
 import autosimmune.defs.TCruziStates;
 import autosimmune.env.Environment;
 import autosimmune.env.Global;
@@ -26,8 +25,8 @@ public class TCruzi extends Antigen{
 	/** peptideo algo do TCruzi */
 	private Pattern target;
 		
-	/** referencia a celula infectada */
-	private Cell host = null;
+	/** referencia ao macrófago infectado */
+	private Macrophage host = null;
 	
 	/** numero de vezes que multiplicou */
 	private int numMult = 0;
@@ -46,6 +45,7 @@ public class TCruzi extends Antigen{
 	public TCruzi(Environment z, int x, int y) {
 		super(z, x, y, new Pattern(Global.getInstance().getStringParameter(EnvParameters.TCRUZI_SELF_PATTERN)));
 		this.target = new Pattern(Global.getInstance().getStringParameter(EnvParameters.TCRUZI_TARGET_PATTERN));
+		state = TCruziStates.CIRCULATING;
 	}
 	
 	/**
@@ -59,21 +59,38 @@ public class TCruzi extends Antigen{
 		
 		tick();
 		
-		//procurando uma celula
-		if (this.host == null ){
-			randomWalk(true);
-			//ArrayList<Cell> cells = super.getEspecificNeighbors(Cell.class);
-			//for(Cell c: cells){
-			ArrayList<PC> cells = super.getEspecificNeighbors(PC.class);
-			for(PC c: cells){
-				//o antigeno apresentado pelo MHC eh similar ao proprio antigeno da superficie da celula
-				Pattern p = c.MHCI();
-				if(Affinity.match(this.target, p)){
-					//if (this.infect(c)){
-					//	return;
-					//}
+		switch(state){
+
+			case CIRCULATING: {
+				if (this.host == null ){
+					randomWalk();
+					ArrayList<Macrophage> macrof = super.getEspecificNeighbors(Macrophage.class);
+					for(Macrophage c: macrof){
+						//o antigeno apresentado pelo MHC eh similar ao proprio antigeno da superficie da celula
+						Pattern p = c.MHCI();
+						if(Affinity.match(this.target, p)){
+							if (this.infect(c)){
+								state = TCruziStates.MULTIPLYING;
+								break;
+							}
+						}
+					}
+				}else{
+					state = TCruziStates.MULTIPLYING;
 				}
-			}
+			} break;
+			
+			case MULTIPLYING: {
+				if(this.host != null){
+					if(this.host.getTCruzis().size() >= 512)
+						state = TCruziStates.AWAITING_BREACH;
+				}
+			} break;
+			
+			case AWAITING_BREACH: {
+				if(this.host == null)
+					state = TCruziStates.CIRCULATING;
+			} break;
 		}
 	}
 	
@@ -81,13 +98,13 @@ public class TCruzi extends Antigen{
 	 * Funcao chamada quando tenta infectar uma celula-alvo
 	 * @param c Celula-alvo
 	 */
-	/*private boolean infect(Cell c) {
-		//if (c.infectedBy(this)){
-		//	this.host = c;
-		//	return true;
-		//}
+	private boolean infect(Macrophage m) {
+		if (m.infectedBy(this)){
+			this.host = m;
+			return true;
+		}
 		return false;
-	}*/
+	}
 	
 	/**
 	 * Remove o TCruzi da celula. Funcao chamada

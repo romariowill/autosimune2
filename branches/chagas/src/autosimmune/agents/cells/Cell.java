@@ -3,6 +3,7 @@ package autosimmune.agents.cells;
 import java.util.ArrayList;
 
 import autosimmune.agents.Antigen;
+import autosimmune.agents.pathogens.TCruzi;
 import autosimmune.agents.pathogens.Virus;
 import autosimmune.defs.CitokineNames;
 import autosimmune.env.Environment;
@@ -23,6 +24,9 @@ abstract public class Cell extends Antigen {
 	
 	/** Referencia ao virus que a infectou */
 	protected Virus virus = null;
+
+	/** Referencia aos Tcruzis que o estao infectando */
+	protected ArrayList<TCruzi> tcruzis = null;
 	
 	/**
 	 * Contrutor
@@ -140,10 +144,7 @@ abstract public class Cell extends Antigen {
 	 * Mata a celula por apoptose
 	 */
 	public void apoptosis(){
-		if(this.virus != null){
-			this.virus.removeHost(this);
-			this.virus = null;
-		}
+		removeParasites();
 		releaseCitokine(CitokineNames.APOPTOSIS);
 		this.clean();
 	}
@@ -164,10 +165,7 @@ abstract public class Cell extends Antigen {
 	 * Mata a celula por necrose
 	 */
 	public void necrosis(){
-		if(this.virus != null){
-			this.virus.removeHost(this);
-			this.virus = null;
-		}
+		removeParasites();
 		releaseCitokine(CitokineNames.NECROTIC);
 		//die();
 		//neste caso a celula nao executa o die, pois ainda precisa representar a presenca
@@ -179,10 +177,39 @@ abstract public class Cell extends Antigen {
 	 * Remove a celula da simulacao
 	 */
 	public void clean() {
+		removeParasites();
+		zone.removeAgent(this);
+	}
+	
+	/**
+	 * Infecta por TCruzi
+	 * @param tcruzi
+	 */
+	public boolean infectedBy(TCruzi tcruzi){
+		if (this.tcruzis != null){
+			return this.tcruzis.add(tcruzi);
+		}
+		return false;
+	}
+	
+	/**
+	 * Libera os parasitas da célula
+	 * @return boolean
+	 */
+	public void removeParasites(){
+		if (this.tcruzis != null){
+			for(TCruzi tc: this.tcruzis){
+				tc.removeHost(this);
+				this.tcruzis.remove(tc);
+			}
+		}
 		if(this.virus != null){
 			this.virus.removeHost(this);
 			this.virus = null;
 		}
-		zone.removeAgent(this);
+	}
+	
+	public ArrayList<TCruzi> getTCruzis(){
+		return tcruzis;
 	}
 }

@@ -30,7 +30,7 @@
 	<attribute id="virusLatency" display_name="Virus Latency"
 		value="10" type="int" />
 	<attribute id="tcruziTargetPattern" display_name="TCruzi Target Pattern"
-		value="10000000001111111111" type="string" />
+		value="00011100011100011100" type="string" />
 	<attribute id="tcruziVirulency" display_name="TCruzi Virulency"
 		value="1" type="int" />
 	<attribute id="tcruziLatency" display_name="TCruzi Latency"
