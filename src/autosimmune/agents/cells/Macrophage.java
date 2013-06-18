@@ -168,7 +168,7 @@ public class Macrophage extends APC {
 				if(getTicks() % 20 == 0){
 					releaseCitokine(CitokineNames.NECROTIC);
 				}
-				if(this.tcruzis.size() >= 512)
+				if(this.tcruzis.size() >= Global.getInstance().getIntegerParameter(EnvParameters.TCRUZI_NUM_BREACH))
 					removeParasites();
 			}break;
 		}

@@ -134,8 +134,11 @@ abstract public class Cell extends Antigen {
 	 */
 	public Pattern MHCI(){
 		if(this.virus != null){
-			return new Pattern(this.getSelf().getEpitope().concat(virus.getSelf().getEpitope()));
+			Pattern x  = new Pattern(this.getSelf().getEpitope().concat(virus.getSelf().getEpitope()));
+			System.out.println("Virus - " + x.getEpitope());
+			return x;
 		} else {
+			System.out.println("Não virus - " + this.getSelf().getEpitope());
 			return this.getSelf();
 		}
 	}

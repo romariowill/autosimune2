@@ -105,21 +105,21 @@ public class Global extends DefaultContext<Agent>  implements ContextBuilder<Obj
 		
 		ticks++;
 		
-		/*if(ticks == 15){
+		if(ticks == 15){
 			Tissue ts = (Tissue) Environment.getEnvironment(ZoneNames.Tissue);
 			int vx = RandomUtils.getRandomFromTo(0, ts.getWidth());
 			int vy = RandomUtils.getRandomFromTo(0, ts.getHeight());
-			for(int i = 0; i < 40; i++){
+			for(int i = 0; i < 5; i++){
 				ts.addAgent(new Virus(ts, vx, vy));
 				//ts.addAgent(new Virus(ts, 75, 75));
 			}
-		}*/
+		}
 		
 		/*add Tcruzis*/
 		if(ticks == 5){
 			Tissue ts = (Tissue) Environment.getEnvironment(ZoneNames.Tissue);
 			
-			for(int i = 0; i < 20; i++){
+			for(int i = 0; i < 50; i++){
 				int vx = RandomUtils.getRandomFromTo(0, ts.getWidth());
 				int vy = RandomUtils.getRandomFromTo(0, ts.getHeight());
 				ts.addAgent(new TCruzi(ts, vx, vy));
@@ -130,7 +130,7 @@ public class Global extends DefaultContext<Agent>  implements ContextBuilder<Obj
 		if(ticks == 10){
 			Tissue ts = (Tissue) Environment.getEnvironment(ZoneNames.Tissue);
 			
-			for(int i = 0; i < 20; i++){
+			for(int i = 0; i < 50; i++){
 				int vx = RandomUtils.getRandomFromTo(0, ts.getWidth());
 				int vy = RandomUtils.getRandomFromTo(0, ts.getHeight());
 				ts.addAgent(new Macrophage(ts, vx, vy));
