@@ -18,7 +18,7 @@
 	<attribute id="selfPatternLenght" display_name="Self Pattern Lenght"
 		value="20" type="int" />
 	<attribute id="receptorPatternLenght" display_name="Receptor Pattern Lenght"
-		value="5" type="int" />
+		value="10" type="int" />
 	<attribute id="affinityThreshold" display_name="Affinity Threshold"
 		value="5" type="int" />
 	<attribute id="virusTargetPattern" display_name="Virus Target Pattern"

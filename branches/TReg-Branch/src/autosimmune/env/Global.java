@@ -101,17 +101,19 @@ public class Global extends DefaultContext<Agent>  implements ContextBuilder<Obj
 			((Environment) c).updateEnvironment();
 		}
 		
-		ticks++;
 		
-		if(ticks == 15){
+		
+		if(ticks%100 == 0){
 			Tissue ts = (Tissue) Environment.getEnvironment(ZoneNames.Tissue);
 			int vx = RandomUtils.getRandomFromTo(0, ts.getWidth());
 			int vy = RandomUtils.getRandomFromTo(0, ts.getHeight());
-			for(int i = 0; i < 40; i++){
+			for(int i = 0; i < 100; i++){
 				ts.addAgent(new Virus(ts, vx, vy));
 				//ts.addAgent(new Virus(ts, 75, 75));
 			}
 		}
+		
+		ticks++;
 		
 		//re-infeccao
 		//TODO parametrizar a opcao de simular re-infeccao

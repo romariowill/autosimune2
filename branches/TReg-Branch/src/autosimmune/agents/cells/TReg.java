@@ -93,8 +93,8 @@ public class TReg extends Cell implements Lymphocyte{
 
 		tick();
 		
-		System.out.println("TregCount: " + this.gettRegCount());
-	    System.out.println("TregActive: " + this.gettRegActiveCount());
+		//System.out.println("TregCount: " + this.gettRegCount());
+	    //System.out.println("TregActive: " + this.gettRegActiveCount());
 		switch(state){
 			
 			case INACTIVE: {
@@ -103,19 +103,27 @@ public class TReg extends Cell implements Lymphocyte{
 				
 				for(APC d : getEspecificNeighbors(APC.class)){
 					Pattern antigen = d.MHCII();
-					System.out.println("TReg Encontrou com APC");
+					/*System.out.println("TReg Encontrou com APC ");
+					if(antigen!=null)
+						System.out.print(" Ant: "+antigen.getEpitope()+ " - ");
+					if(target!=null)
+						System.out.print(" Tar: "+target.getEpitope()+ " - ");*/
 					if (Affinity.match(target, antigen)){
+						///System.out.print("\n\n\n\n\n\n\n-----------------------------------\n\n\n\n\n\n");
+						
+						TReg.settRegActiveCount(tRegActivated+1);	
 						d.contact(true);
 						this.state = TRegCellStates.ACTIVE;
-						this.settRegActiveCount(this.gettRegActiveCount() +1);
-						System.out.println("TReg Ativado");
+						//this.settRegActiveCount(this.gettRegActiveCount() +1);
+						
 						for(int i = 0; i < proliferationCount; i++){
 							TReg treg = new TReg(this.zone, getX()+1, getY(), this.target, this.state);
 							this.zone.add(treg);
-							
+							TReg.settRegActiveCount(tRegActivated+1);
 							//TODO fazer passar pela Circulation
 							Portal.transportToZone(treg, ZoneNames.Tissue, 150, 150);
 						}
+						//System.out.println("TReg Ativados: " + TReg.gettRegActiveCount());
 						return;
 					} else {
 						d.contact(false);
@@ -134,7 +142,7 @@ public class TReg extends Cell implements Lymphocyte{
 				
 				if(getCitokineValue(CitokineNames.CK1) < ck1MemoryThreshold){
 					this.state =  TRegCellStates.MEMORY;
-					this.settRegActiveCount(this.gettRegActiveCount() -1);
+					TReg.settRegActiveCount(tRegActivated-1);
 					return;
 				}
 				
@@ -159,8 +167,7 @@ public class TReg extends Cell implements Lymphocyte{
 				
 				if(lifetime <= 0){
 					this.state = TRegCellStates.APOPTOSIS;
-					this.settRegCount(this.tRegCount-1);
-					this.settRegActiveCount(this.gettRegActiveCount() -1);
+					TReg.settRegActiveCount(tRegActivated-1);	
 				} else {
 					lifetime--;
 				}
@@ -177,12 +184,14 @@ public class TReg extends Cell implements Lymphocyte{
 					if (Affinity.match(target, antigen)){
 						d.contact(true);
 						this.state = TRegCellStates.ACTIVE;
-						this.settRegActiveCount(this.gettRegActiveCount() +1);
+						TReg.settRegActiveCount(tRegActivated+1);	
 						for(int i = 0; i < memoryProliferationCount; i++){
 							TReg treg = new TReg(this.zone, getX()+1, getY(), this.target, this.state);
 							this.zone.add(treg);
 							Portal.transportToZone(treg, ZoneNames.Tissue, 150, 150);
+							TReg.settRegActiveCount(tRegActivated+1);	
 						}
+						//System.out.println("TReg Ativados: " + TReg.gettRegActiveCount());
 						return;
 					} else {
 						d.contact(false);
@@ -205,11 +214,11 @@ public class TReg extends Cell implements Lymphocyte{
 		TReg.tRegCount = tReg;
 	}
 	
-	public static int gettRegActiveCount() {
+	public static synchronized int gettRegActiveCount() {
 		return tRegActivated;
 	}
 
-	public static void settRegActiveCount(int tReg) {
+	public static synchronized void settRegActiveCount(int tReg) {
 		TReg.tRegActivated = tReg;
 	}
 }

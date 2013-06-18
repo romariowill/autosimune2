@@ -13,24 +13,6 @@
   </scheduleParams>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>ThCount</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>ThCount</id>
-        <className>autosimmune.agents.cells.ThCell</className>
-        <methodName>getThCount</methodName>
-        <aggType>MAX</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>TRegCount</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>TRegCount</id>
-        <className>autosimmune.agents.cells.TReg</className>
-        <methodName>gettRegCount</methodName>
-        <aggType>MAX</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
       <string>Treg Activated</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
         <id>Treg Activated</id>
