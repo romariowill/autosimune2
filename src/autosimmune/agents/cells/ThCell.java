@@ -53,7 +53,7 @@ public class ThCell extends Cell implements Lymphocyte {
 		this.ck1MemoryThreshold = Global.getInstance().getIntegerParameter(EnvParameters.TH_CK1_MEMORY_THRESHOLD);
 		this.memoryProliferationCount = Global.getInstance().getIntegerParameter(EnvParameters.TH_MEMORY_PROLIFERATION_COUNT);
 		this.ck2ApoptosisLimit = Global.getInstance().getIntegerParameter(EnvParameters.TH_CK2_APOPTOSIS_LIMIT);
-		this.setThCount(this.getThCount() + 1);
+		//this.setThCount(this.getThCount() + 1);
 	}
 	
 	private ThCell(Environment z, int x, int y, Pattern target, ThCellStates initialState) {
@@ -86,8 +86,8 @@ public class ThCell extends Cell implements Lymphocyte {
 	public void step(){
 
 		tick();
-	    System.out.println("ThCount: " + this.getThCount());
-	    System.out.println("ThActive: " + this.getThActiveCount());
+	    //System.out.println("ThCount: " + this.getThCount());
+	    //System.out.println("ThActive: " + this.getThActiveCount());
 		switch(state){
 			
 			case INACTIVE: {
@@ -96,18 +96,25 @@ public class ThCell extends Cell implements Lymphocyte {
 				
 				for(APC d : getEspecificNeighbors(APC.class)){
 					Pattern antigen = d.MHCII();
-
+					/*System.out.println("Th Encontrou com APC ");
+					if(antigen!=null)
+						System.out.print(" Ant: "+antigen.getEpitope()+ " - ");
+					if(target!=null)
+						System.out.print(" Tar: "+target.getEpitope()+ " - ");*/
 					if (Affinity.match(target, antigen)){
+						//System.out.print("\n\n\n\n\n\n\n-----------------------------------\n\n\n\n\n\n");
 						d.contact(true);
 						this.state = ThCellStates.ACTIVE;
-						this.setThActiveCount(this.getThActiveCount()+1);
+						ThCell.setThActiveCount(thActivatedCount+1);
+						//System.out.println("Th Ativados: " + ThCell.getThActiveCount());
 						for(int i = 0; i < proliferationCount; i++){
 							ThCell th = new ThCell(this.zone, getX()+1, getY(), this.target, this.state);
 							this.zone.add(th);
-							
+							ThCell.setThActiveCount(thActivatedCount+1);
 							//TODO fazer passar pela Circulation
 							Portal.transportToZone(th, ZoneNames.Tissue, 150, 150);
 						}
+						//System.out.println("Th Ativados: " + ThCell.getThActiveCount());
 						return;
 					} else {
 						d.contact(false);
@@ -126,7 +133,7 @@ public class ThCell extends Cell implements Lymphocyte {
 				
 				if(getCitokineValue(CitokineNames.CK1) < ck1MemoryThreshold){
 					this.state =  ThCellStates.MEMORY;
-					this.setThActiveCount(this.getThActiveCount()-1);
+					ThCell.setThActiveCount(thActivatedCount-1);
 					return;
 				}
 				
@@ -134,9 +141,9 @@ public class ThCell extends Cell implements Lymphocyte {
 				 * parametro ck2ApoptosisLimit, a célula entra em Apoptose
 				 */	
 				//TODO Fazer estado de Anergia
-				if(getCitokineValue(CitokineNames.CK2) < ck2ApoptosisLimit){
+				if(getCitokineValue(CitokineNames.CK2) > ck2ApoptosisLimit){
 					this.state =  ThCellStates.APOPTOSIS;
-					this.setThActiveCount(this.getThActiveCount()-1);
+					ThCell.setThActiveCount(thActivatedCount-1);
 					return;
 				}
 				
@@ -159,7 +166,7 @@ public class ThCell extends Cell implements Lymphocyte {
 				
 				if(lifetime <= 0){
 					this.state = ThCellStates.APOPTOSIS;
-					this.setThActiveCount(this.getThActiveCount()-1);
+					ThCell.setThActiveCount(thActivatedCount-1);
 				} else {
 					lifetime--;
 				}
@@ -176,12 +183,14 @@ public class ThCell extends Cell implements Lymphocyte {
 					if (Affinity.match(target, antigen)){
 						d.contact(true);
 						this.state = ThCellStates.ACTIVE;
-						this.setThActiveCount(this.getThActiveCount()+1);
+						ThCell.setThActiveCount(thActivatedCount+1);
 						for(int i = 0; i < memoryProliferationCount; i++){
 							ThCell th = new ThCell(this.zone, getX()+1, getY(), this.target, this.state);
 							this.zone.add(th);
 							Portal.transportToZone(th, ZoneNames.Tissue, 150, 150);
+							ThCell.setThActiveCount(thActivatedCount+1);
 						}
+						//System.out.println("Th Ativados: " + ThCell.getThActiveCount());
 						return;
 					} else {
 						d.contact(false);
@@ -220,11 +229,11 @@ public class ThCell extends Cell implements Lymphocyte {
 		ThCell.thCount = thCount;
 	}
 	
-	public static int getThActiveCount() {
+	public static synchronized int getThActiveCount() {
 		return thActivatedCount;
 	}
 
-	public static void setThActiveCount(int thCount) {
+	public static synchronized void setThActiveCount(int thCount) {
 		ThCell.thActivatedCount = thCount;
 	}
 }

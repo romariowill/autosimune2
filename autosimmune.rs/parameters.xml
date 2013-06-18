@@ -181,7 +181,7 @@
 									
 		/>
 				<parameter name="lymphnodeWidth" displayName="Lymphnode Width" type="java.lang.Integer" 
-						defaultValue="50" 
+						defaultValue="200" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
@@ -313,7 +313,7 @@
 									
 		/>
 				<parameter name="receptorPatternLenght" displayName="Receptor Pattern Lenght" type="java.lang.Integer" 
-						defaultValue="5" 
+						defaultValue="10" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
@@ -325,7 +325,7 @@
 									
 		/>
 				<parameter name="lymphnodeHeight" displayName="Lymphnode Height" type="java.lang.Integer" 
-						defaultValue="50" 
+						defaultValue="200" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
