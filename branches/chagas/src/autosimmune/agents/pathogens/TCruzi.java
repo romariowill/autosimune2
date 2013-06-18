@@ -82,7 +82,7 @@ public class TCruzi extends Antigen{
 			
 			case MULTIPLYING: {
 				if(this.host != null){
-					if(this.host.getTCruzis().size() >= 512)
+					if(this.host.getTCruzis().size() >= Global.getInstance().getIntegerParameter(EnvParameters.TCRUZI_NUM_BREACH))
 						state = TCruziStates.AWAITING_BREACH;
 				}
 			} break;
@@ -118,29 +118,22 @@ public class TCruzi extends Antigen{
 	}
 
 	/**
-	 * Funcao do virus executada por uma celula hospedeira.
+	 * Funcao do TCruzi executada por uma celula hospedeira.
 	 * É chamada pela propria celula hospedeira infectada.
 	 * @param cell
 	 */
 	public void multiplica(Cell cell) {
 		if (host != null && host == cell){
-			numMult++;
 			int x = cell.getX();
 			int y = cell.getY();
 			this.moveTo(x, y);
-			int virulency = Global.getInstance().getIntegerParameter(EnvParameters.TCRUZI_VIRULENCY);
-			int virusLatency = Global.getInstance().getIntegerParameter(EnvParameters.TCRUZI_LATENCY);
-			if (numMult % virusLatency == 0) {
-				if (numMult > virusLatency){
-					cell.necrosis();
-					this.host = null;
-					numMult = 0;
-				} else {
-					for(int i = 0; i < virulency; i++){
-						TCruzi tcruzi = new TCruzi(this.zone, this.getX(), this.getY());
-						zone.addAgent(tcruzi);
-					}
-				}
+			if (cell.getTCruzis().size() >= Global.getInstance().getIntegerParameter(EnvParameters.TCRUZI_NUM_BREACH)){
+				cell.necrosis();
+				numMult = 0;
+			} else {
+				TCruzi tcruzi = new TCruzi(this.zone, this.getX(), this.getY());
+				zone.addAgent(tcruzi);
+				numMult++;
 			}
 		}
 	}
@@ -166,5 +159,12 @@ public class TCruzi extends Antigen{
 			return false;
 		}
 	}
-
+	
+	/**
+	 * Funcao que retorna o numero de vezes que o tcruzi multiplicou
+	 * @return int
+	 */
+	public int getNumMult(){
+		return numMult;
+	}
 }
