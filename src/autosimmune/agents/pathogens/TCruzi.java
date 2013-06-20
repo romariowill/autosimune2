@@ -9,8 +9,10 @@ import autosimmune.agents.cells.Cell;
 import autosimmune.agents.cells.Macrophage;
 import autosimmune.defs.EnvParameters;
 import autosimmune.defs.TCruziStates;
+import autosimmune.defs.ZoneNames;
 import autosimmune.env.Environment;
 import autosimmune.env.Global;
+import autosimmune.env.Tissue;
 import autosimmune.utils.Affinity;
 import autosimmune.utils.Pattern;
 
@@ -58,6 +60,8 @@ public class TCruzi extends Antigen{
 	public void step(){
 		
 		tick();
+		
+		//System.out.println("Num tcruzi - " + getTotalTcruzi());
 		
 		switch(state){
 
@@ -166,5 +170,10 @@ public class TCruzi extends Antigen{
 	 */
 	public int getNumMult(){
 		return numMult;
+	}
+	
+	public int getTotalTcruzi(){
+		int x = ((Tissue) Environment.getEnvironment(ZoneNames.Tissue)).getObjects(TCruzi.class).size();
+		return x;
 	}
 }
