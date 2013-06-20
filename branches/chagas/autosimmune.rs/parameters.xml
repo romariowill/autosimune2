@@ -61,7 +61,7 @@
 									
 		/>
 				<parameter name="tcruziSelfPattern" displayName="TCruzi Self Pattern" type="java.lang.String" 
-						defaultValue="11111111111111111111" 
+						defaultValue="101000101000101000101" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
 									
@@ -193,7 +193,7 @@
 									
 		/>
 				<parameter name="tcruziTargetPattern" displayName="TCruzi Target Pattern" type="java.lang.String" 
-						defaultValue="00011100011100011100" 
+						defaultValue="010111010111010111010" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
 									
@@ -292,6 +292,12 @@
 						defaultValue="00110001110011000111" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
+									
+		/>
+				<parameter name="tcruziNumBreach" displayName="TCruzi Num Breach" type="java.lang.Integer" 
+						defaultValue="512" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
 				<parameter name="lymphnodeHeight" displayName="Lymphnode Height" type="java.lang.Integer" 

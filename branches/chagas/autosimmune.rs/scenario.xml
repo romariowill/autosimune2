@@ -4,6 +4,5 @@
 <repast.simphony.action.display context="Circulation" file="repast.simphony.action.display_1.xml" />
 <repast.simphony.action.display context="Lymphnode" file="repast.simphony.action.display_2.xml" />
 <repast.simphony.action.data_set context="Tissue" file="repast.simphony.action.data_set_3.xml" />
-<repast.simphony.action.file_sink context="Tissue" file="repast.simphony.action.file_sink_4.xml" />
-<repast.simphony.action.display context="Tissue" file="repast.simphony.action.display_5.xml" />
+<repast.simphony.action.display context="Tissue" file="repast.simphony.action.display_4.xml" />
 </Scenario>
