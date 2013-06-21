@@ -104,7 +104,7 @@ public class Global extends DefaultContext<Agent>  implements ContextBuilder<Obj
 		}
 		
 		ticks++;
-		
+		/*
 		if(ticks == 15){
 			Tissue ts = (Tissue) Environment.getEnvironment(ZoneNames.Tissue);
 			int vx = RandomUtils.getRandomFromTo(0, ts.getWidth());
@@ -113,7 +113,7 @@ public class Global extends DefaultContext<Agent>  implements ContextBuilder<Obj
 				ts.addAgent(new Virus(ts, vx, vy));
 				//ts.addAgent(new Virus(ts, 75, 75));
 			}
-		}
+		}*/
 		
 		/*add Tcruzis*/
 		if(ticks == 5){

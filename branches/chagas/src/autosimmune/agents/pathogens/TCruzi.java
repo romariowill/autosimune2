@@ -27,8 +27,8 @@ public class TCruzi extends Antigen{
 	/** peptideo algo do TCruzi */
 	private Pattern target;
 		
-	/** referencia ao macrófago infectado */
-	private Macrophage host = null;
+	/** referencia a celula infectada */
+	private Cell host = null;
 	
 	/** numero de vezes que multiplicou */
 	private int numMult = 0;
@@ -61,7 +61,7 @@ public class TCruzi extends Antigen{
 		
 		tick();
 		
-		//System.out.println("Num tcruzi - " + getTotalTcruzi());
+		//System.out.println("Num tcruzi - " + getTotalTcruziInTissue());
 		
 		switch(state){
 
@@ -102,9 +102,9 @@ public class TCruzi extends Antigen{
 	 * Funcao chamada quando tenta infectar uma celula-alvo
 	 * @param c Celula-alvo
 	 */
-	private boolean infect(Macrophage m) {
-		if (m.infectedBy(this)){
-			this.host = m;
+	private boolean infect(Cell c) {
+		if (c.infectedBy(this)){
+			this.host = c;
 			return true;
 		}
 		return false;
@@ -118,12 +118,14 @@ public class TCruzi extends Antigen{
 	public void removeHost(Cell c){
 		if (this.host == c){
 			this.host = null;
+			numMult = 0;
 		}
 	}
 
 	/**
 	 * Funcao do TCruzi executada por uma celula hospedeira.
 	 * É chamada pela propria celula hospedeira infectada.
+	 * Move o Tcruzi para mesma posição da celula hospedeira e executa divisão binária.
 	 * @param cell
 	 */
 	public void multiplica(Cell cell) {
@@ -131,13 +133,16 @@ public class TCruzi extends Antigen{
 			int x = cell.getX();
 			int y = cell.getY();
 			this.moveTo(x, y);
-			if (cell.getTCruzis().size() >= Global.getInstance().getIntegerParameter(EnvParameters.TCRUZI_NUM_BREACH)){
-				cell.necrosis();
-				numMult = 0;
-			} else {
+			int numTcruzi = cell.getTCruzis().size();
+			//int numTcruziNecrosis = Global.getInstance().getIntegerParameter(EnvParameters.TCRUZI_NUM_NECROSIS);
+			int numTCruziBreach = Global.getInstance().getIntegerParameter(EnvParameters.TCRUZI_NUM_BREACH);
+			if(numTcruzi < numTCruziBreach){
 				TCruzi tcruzi = new TCruzi(this.zone, this.getX(), this.getY());
 				zone.addAgent(tcruzi);
+				tcruzi.infect(cell);
 				numMult++;
+			}else {
+				cell.necrosis();
 			}
 		}
 	}
@@ -172,7 +177,7 @@ public class TCruzi extends Antigen{
 		return numMult;
 	}
 	
-	public int getTotalTcruzi(){
+	public int getTotalTcruziInTissue(){
 		int x = ((Tissue) Environment.getEnvironment(ZoneNames.Tissue)).getObjects(TCruzi.class).size();
 		return x;
 	}
