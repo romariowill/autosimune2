@@ -6,8 +6,8 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
-				<parameter name="tcruziVirulency" displayName="TCruzi Virulency" type="java.lang.Integer" 
-						defaultValue="1" 
+				<parameter name="tcruziVirulency" displayName="TCruzi Virulency (1-100)" type="java.lang.Integer" 
+						defaultValue="60" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
