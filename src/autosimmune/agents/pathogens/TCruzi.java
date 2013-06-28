@@ -70,12 +70,14 @@ public class TCruzi extends Antigen{
 					randomWalk();
 					ArrayList<Macrophage> macrof = super.getEspecificNeighbors(Macrophage.class);
 					for(Macrophage c: macrof){
-						//o antigeno apresentado pelo MHC eh similar ao proprio antigeno da superficie da celula
-						Pattern p = c.MHCI();
-						if(Affinity.match(this.target, p)){
-							if (this.infect(c)){
-								state = TCruziStates.MULTIPLYING;
-								break;
+						if(!c.isDead()){
+							//o antigeno apresentado pelo MHC eh similar ao proprio antigeno da superficie da celula
+							Pattern p = c.MHCI();
+							if(Affinity.match(this.target, p)){
+								if (this.infect(c)){
+									state = TCruziStates.MULTIPLYING;
+									break;
+								}
 							}
 						}
 					}
@@ -88,6 +90,8 @@ public class TCruzi extends Antigen{
 				if(this.host != null){
 					if(this.host.getTCruzis().size() >= Global.getInstance().getIntegerParameter(EnvParameters.TCRUZI_NUM_BREACH))
 						state = TCruziStates.AWAITING_BREACH;
+				}else{
+					state = TCruziStates.CIRCULATING;
 				}
 			} break;
 			
@@ -133,17 +137,10 @@ public class TCruzi extends Antigen{
 			int x = cell.getX();
 			int y = cell.getY();
 			this.moveTo(x, y);
-			int numTcruzi = cell.getTCruzis().size();
-			//int numTcruziNecrosis = Global.getInstance().getIntegerParameter(EnvParameters.TCRUZI_NUM_NECROSIS);
-			int numTCruziBreach = Global.getInstance().getIntegerParameter(EnvParameters.TCRUZI_NUM_BREACH);
-			if(numTcruzi < numTCruziBreach){
-				TCruzi tcruzi = new TCruzi(this.zone, this.getX(), this.getY());
-				zone.addAgent(tcruzi);
-				tcruzi.infect(cell);
-				numMult++;
-			}else {
-				cell.necrosis();
-			}
+			TCruzi tcruzi = new TCruzi(this.zone, this.getX(), this.getY());
+			zone.addAgent(tcruzi);
+			tcruzi.infect(cell);
+			numMult++;
 		}
 	}
 	

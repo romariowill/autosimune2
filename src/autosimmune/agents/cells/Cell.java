@@ -2,11 +2,15 @@ package autosimmune.agents.cells;
 
 import java.util.ArrayList;
 
+import repast.simphony.random.RandomHelper;
+
 import autosimmune.agents.Antigen;
 import autosimmune.agents.pathogens.TCruzi;
 import autosimmune.agents.pathogens.Virus;
 import autosimmune.defs.CitokineNames;
+import autosimmune.defs.EnvParameters;
 import autosimmune.env.Environment;
+import autosimmune.env.Global;
 import autosimmune.utils.Pattern;
 
 /**
@@ -189,8 +193,12 @@ abstract public class Cell extends Antigen {
 	 * @param tcruzi
 	 */
 	public boolean infectedBy(TCruzi tcruzi){
-		if (this.tcruzis != null){
-			return this.tcruzis.add(tcruzi);
+		if (this.tcruzis != null && this.tcruzis.size() < Global.getInstance().getIntegerParameter(EnvParameters.TCRUZI_NUM_BREACH)){
+			if(RandomHelper.nextIntFromTo(1, 100) <= Global.getInstance().getIntegerParameter(EnvParameters.TCRUZI_VIRULENCY)){
+				return this.tcruzis.add(tcruzi);
+			}else{
+				return false;
+			}
 		}
 		return false;
 	}
@@ -200,11 +208,13 @@ abstract public class Cell extends Antigen {
 	 * @return boolean
 	 */
 	public void removeParasites(){
+		System.out.println("Liberando Parasitas: ");
 		if (this.tcruzis != null){
-			for(TCruzi tc: this.tcruzis){
-				tc.removeHost(this);
-				this.tcruzis.remove(tc);
+			System.out.print(this.tcruzis.size());
+			for(int i = 0; i<this.tcruzis.size();i++){
+				this.tcruzis.get(i).removeHost(this);
 			}
+			this.tcruzis.clear();
 		}
 		if(this.virus != null){
 			this.virus.removeHost(this);

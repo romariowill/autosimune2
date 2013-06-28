@@ -232,8 +232,18 @@ public class Macrophage extends APC {
 	 */
 	public void reproducingParasites(){
 		/*tcruzi*/
-		for(TCruzi t: this.tcruzis){
-			t.multiplica(this);
+		if(this.tcruzis != null){
+			int numTcruzi = this.getTCruzis().size();
+			int numTCruziBreach = Global.getInstance().getIntegerParameter(EnvParameters.TCRUZI_NUM_BREACH);
+			for(int i = 0; i<this.tcruzis.size();i++){
+				numTcruzi = this.getTCruzis().size();
+				if(numTcruzi < numTCruziBreach){
+					this.tcruzis.get(i).multiplica(this);
+				}else{
+					necrosis();
+					break;
+				}
+			}
 		}
 	}
 	
