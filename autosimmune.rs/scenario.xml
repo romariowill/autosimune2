@@ -6,4 +6,5 @@
 <repast.simphony.action.data_set context="Tissue" file="repast.simphony.action.data_set_3.xml" />
 <repast.simphony.action.display context="Tissue" file="repast.simphony.action.display_4.xml" />
 <repast.simphony.action.time_series_chart context="Tissue" file="repast.simphony.action.time_series_chart_5.xml" />
+<repast.simphony.action.time_series_chart context="Tissue" file="repast.simphony.action.time_series_chart_6.xml" />
 </Scenario>

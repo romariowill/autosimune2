@@ -6,6 +6,8 @@ public enum EnvParameters {
 	EVAPORATION_RATE ("evaporationRate"),
 	DIFFUSION_CONSTANT ("difusionConstant"),
 	CITOKINE_VALUE ("citokineValue"),
+	CYTOKINE_NECROTIC_NUM_RELEASES ("cytokineNecroticNumReleases"),
+	CYTOKINE_NECROTIC_INTERVAL_RELEASES ("cytokineNecroticIntervalReleases"),
 		
 	/* Parametros da especificidade */
 	SELF_PATTERN_LENGHT ("selfPatternLenght"),
@@ -48,8 +50,10 @@ public enum EnvParameters {
 	TCRUZI_SELF_PATTERN ("tcruziSelfPattern"),
 	TCRUZI_TARGET_PATTERN ("tcruziTargetPattern"),
 	TCRUZI_VIRULENCY ("tcruziVirulency"),
-	TCRUZI_LATENCY ("tcruziLatency"),
+	TCRUZI_TIME_MULTIPLY ("tcruziTimeMultiply"),
 	TCRUZI_NUM_BREACH ("tcruziNumBreach"),
+	TCRUZI_INOCULUM ("tcruziInoculum"),
+	TCRUZI_ESCAPE_FACTOR ("tcruziEscapeFactor"),
 	
 	/* Parametros das celulas PC */
 	PC_SELF_PATTERN ("pcSelfPattern"),
@@ -85,6 +89,7 @@ public enum EnvParameters {
 	MACROPHAGE_SELF_PATTERN ("macrophageSelfPattern"),
 	MACROPHAGE_MK1_DURATION ("macrophageMK1Duration"),
 	MACROPHAGE_LIFETIME ("macrophageLifetime"),
+	MACROPHAGE_NUM_INIT_TISSUE ("macrophageNumInitTissue"),
 	
 	/* Parametros das celulas BCell */
 	BCELL_SELF_PATTERN ("bCellSelfPattern"),

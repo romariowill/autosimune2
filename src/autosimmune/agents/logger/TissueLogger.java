@@ -1,5 +1,7 @@
 package autosimmune.agents.logger;
 
+import org.apache.velocity.runtime.directive.Macro;
+
 import autosimmune.agents.Agent;
 import autosimmune.agents.Antibody;
 import autosimmune.agents.cells.BCell;
@@ -8,9 +10,12 @@ import autosimmune.agents.cells.Macrophage;
 import autosimmune.agents.cells.NK;
 import autosimmune.agents.cells.PC;
 import autosimmune.agents.cells.ThCell;
+import autosimmune.agents.pathogens.TCruzi;
 import autosimmune.agents.pathogens.Virus;
 import autosimmune.defs.EnvParameters;
 import autosimmune.defs.PCStates;
+import autosimmune.defs.ZoneNames;
+import autosimmune.env.Environment;
 import autosimmune.env.Global;
 import autosimmune.env.Tissue;
 import autosimmune.utils.Pattern;
@@ -36,8 +41,21 @@ public class TissueLogger extends Agent {
 		return this.zone.getObjects(Virus.class).size();
 	}
 	
+	public int getTCruziCount(){
+		return this.zone.getObjects(TCruzi.class).size();
+	}
+	
 	public int getMacrophageCount(){
 		return this.zone.getObjects(Macrophage.class).size();
+	}
+	
+	public int getTotalMacrophageNoDead(){
+		int cont = 0;
+		for(Agent mc: this.zone.getObjects(Macrophage.class)){
+			if(!((Macrophage)mc).isDead())
+				cont++;
+		}
+		return cont;
 	}
 	
 	public int getNKCount(){

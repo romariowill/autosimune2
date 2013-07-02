@@ -27,11 +27,14 @@ public class TCruzi extends Antigen{
 	/** peptideo algo do TCruzi */
 	private Pattern target;
 		
-	/** referencia a celula infectada */
+	/** referencia a celula infectada ou que endocitou*/
 	private Cell host = null;
 	
 	/** numero de vezes que multiplicou */
 	private int numMult = 0;
+	
+	/** numero de vezes que tentou multiplicar */
+	private int numCallMult = 0;
 	
 	/** Representação dos estados internos do parasita*/
 	private TCruziStates state;
@@ -114,6 +117,14 @@ public class TCruzi extends Antigen{
 		return false;
 	}
 	
+	/** 
+	 * Funcao chamada quando he endocitada
+	 * @param c Celula que endocitou
+	 */
+	public void endocit(Cell c) {
+		this.host = c;
+	}
+	
 	/**
 	 * Remove o TCruzi da celula. Funcao chamada
 	 * quando a celula é destruida
@@ -122,6 +133,7 @@ public class TCruzi extends Antigen{
 	public void removeHost(Cell c){
 		if (this.host == c){
 			this.host = null;
+			numCallMult = 0;
 			numMult = 0;
 		}
 	}
@@ -134,13 +146,18 @@ public class TCruzi extends Antigen{
 	 */
 	public void multiplica(Cell cell) {
 		if (host != null && host == cell){
+			numCallMult++;
 			int x = cell.getX();
 			int y = cell.getY();
 			this.moveTo(x, y);
-			TCruzi tcruzi = new TCruzi(this.zone, this.getX(), this.getY());
-			zone.addAgent(tcruzi);
-			tcruzi.infect(cell);
-			numMult++;
+			int tcruziTimeMultiply = Global.getInstance().getIntegerParameter(EnvParameters.TCRUZI_TIME_MULTIPLY);
+			if(numCallMult%tcruziTimeMultiply == 0){
+				TCruzi tcruzi = new TCruzi(this.zone, this.getX(), this.getY());
+				zone.addAgent(tcruzi);
+				tcruzi.host = cell;
+				cell.getTCruzis().add(tcruzi);
+				numMult++;
+			}
 		}
 	}
 	
@@ -172,10 +189,5 @@ public class TCruzi extends Antigen{
 	 */
 	public int getNumMult(){
 		return numMult;
-	}
-	
-	public int getTotalTcruziInTissue(){
-		int x = ((Tissue) Environment.getEnvironment(ZoneNames.Tissue)).getObjects(TCruzi.class).size();
-		return x;
 	}
 }

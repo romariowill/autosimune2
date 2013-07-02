@@ -6,8 +6,8 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
-				<parameter name="tcruziVirulency" displayName="TCruzi Virulency (1-100)" type="java.lang.Integer" 
-						defaultValue="60" 
+				<parameter name="tcruziVirulency" displayName="TCruzi Virulency (0-100)" type="java.lang.Integer" 
+						defaultValue="20" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
@@ -180,6 +180,12 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
+				<parameter name="cytokineNecroticIntervalReleases" displayName="Cytokine Necrotic Interval Releases" type="java.lang.Integer" 
+						defaultValue="20" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
 				<parameter name="portalNKToSend" displayName="Portal NK To Send" type="java.lang.Integer" 
 						defaultValue="5" 
 						isReadOnly="false" 
@@ -199,7 +205,7 @@
 									
 		/>
 				<parameter name="portalPK1Threshold" displayName="Portal PK1 Threshold" type="java.lang.Double" 
-						defaultValue="1.0" 
+						defaultValue="2.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -264,6 +270,12 @@
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
+				<parameter name="tcruziInoculum" displayName="TCruzi Inoculum" type="java.lang.Integer" 
+						defaultValue="100" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
 				<parameter name="LymphnodeGridwidth" displayName="LymphnodeGrid Width" type="java.lang.Integer" 
 						defaultValue="50" 
 						isReadOnly="false" 
@@ -295,7 +307,7 @@
 									
 		/>
 				<parameter name="tcruziNumBreach" displayName="TCruzi Num Breach" type="java.lang.Integer" 
-						defaultValue="512" 
+						defaultValue="40" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
@@ -344,6 +356,12 @@
 		/>
 				<parameter name="cTLLymphnodeCK1Duration" displayName="CTL Lymphnode CK1 Duration" type="java.lang.Integer" 
 						defaultValue="100" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="cytokineNecroticNumReleases" displayName="Cytokine Necrotic Num Releases" type="java.lang.Integer" 
+						defaultValue="2" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									

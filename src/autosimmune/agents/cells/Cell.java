@@ -32,6 +32,9 @@ abstract public class Cell extends Antigen {
 	/** Referencia aos Tcruzis que o estao infectando */
 	protected ArrayList<TCruzi> tcruzis = null;
 	
+	/** Referencia aos Tcruzis que foram endocitados */
+	protected ArrayList<TCruzi> tcruzisEndocyted = null;
+	
 	/**
 	 * Contrutor
 	 * @param z Zone a qual a celula pertence
@@ -151,7 +154,6 @@ abstract public class Cell extends Antigen {
 	 * Mata a celula por apoptose
 	 */
 	public void apoptosis(){
-		removeParasites();
 		releaseCitokine(CitokineNames.APOPTOSIS);
 		this.clean();
 	}
@@ -194,7 +196,7 @@ abstract public class Cell extends Antigen {
 	 */
 	public boolean infectedBy(TCruzi tcruzi){
 		if (this.tcruzis != null && this.tcruzis.size() < Global.getInstance().getIntegerParameter(EnvParameters.TCRUZI_NUM_BREACH)){
-			if(RandomHelper.nextIntFromTo(1, 100) <= Global.getInstance().getIntegerParameter(EnvParameters.TCRUZI_VIRULENCY)){
+			if(RandomHelper.nextDoubleFromTo(0, 100) <= Global.getInstance().getFloatParameter(EnvParameters.TCRUZI_VIRULENCY)){
 				return this.tcruzis.add(tcruzi);
 			}else{
 				return false;
@@ -208,13 +210,16 @@ abstract public class Cell extends Antigen {
 	 * @return boolean
 	 */
 	public void removeParasites(){
-		System.out.println("Liberando Parasitas: ");
 		if (this.tcruzis != null){
-			System.out.print(this.tcruzis.size());
 			for(int i = 0; i<this.tcruzis.size();i++){
 				this.tcruzis.get(i).removeHost(this);
 			}
 			this.tcruzis.clear();
+		}
+		if (this.tcruzisEndocyted != null){
+			for(TCruzi t: tcruzisEndocyted)
+				t.removeHost(this);
+			this.tcruzisEndocyted.clear();
 		}
 		if(this.virus != null){
 			this.virus.removeHost(this);
@@ -224,5 +229,25 @@ abstract public class Cell extends Antigen {
 	
 	public ArrayList<TCruzi> getTCruzis(){
 		return tcruzis;
+	}
+	
+	public ArrayList<TCruzi> getTCruzisEndocyted(){
+		return tcruzisEndocyted;
+	}
+	
+	public boolean hasSpace(){
+		if(tcruzis.size()+tcruzisEndocyted.size()<Global.getInstance().getIntegerParameter(EnvParameters.TCRUZI_NUM_BREACH))
+			return true;
+		return false;
+	}
+	
+	/**
+	 * Endocitar tcruzi
+	 * @param tcruzi
+	 */
+	public boolean endocitarBy(TCruzi tc){
+		//todo verificar se pode endocitar
+		tc.endocit(this);
+		return true;
 	}
 }
