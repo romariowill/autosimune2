@@ -26,6 +26,8 @@ import autosimmune.utils.Pattern;
  */
 @AgentAnnot(displayName = "Macrophage Cell")
 public class Macrophage extends APC {
+	/** Número de Macrophage */
+	protected static Integer numMacrophages = 0;
 
 	/** Representação dos estados internos da célula */
 	private MacrophageStates state;
@@ -37,6 +39,8 @@ public class Macrophage extends APC {
 
 	private int mk1duration;
 	
+	private int numReleasesCytokineNecrotic;
+	
 	/**
 	 * Construtor da Classe
 	 * @param z Zona a qual o macrófago pertence inicialmente
@@ -46,6 +50,7 @@ public class Macrophage extends APC {
 	 */
 	public Macrophage(Environment z, int x, int y) {
 		super(z, x, y, new Pattern(Global.getInstance().getStringParameter(EnvParameters.MACROPHAGE_SELF_PATTERN)));
+		numMacrophages++;
 		initiateParameters();
 	}
 	
@@ -55,6 +60,14 @@ public class Macrophage extends APC {
 		this.lifetime = Global.getInstance().getIntegerParameter(EnvParameters.MACROPHAGE_LIFETIME);
 		this.mk1duration = Global.getInstance().getIntegerParameter(EnvParameters.MACROPHAGE_MK1_DURATION);
 		this.tcruzis = new ArrayList<TCruzi>();
+		this.numReleasesCytokineNecrotic = Global.getInstance().getIntegerParameter(EnvParameters.CYTOKINE_NECROTIC_NUM_RELEASES);
+	}
+	
+	/**
+	 * Retorna o numero de instancias
+	 */
+	public static int getNumMacrophage(){
+		return numMacrophages;
 	}
 	
 	/**
@@ -122,6 +135,11 @@ public class Macrophage extends APC {
 					}
 				}
 				
+				for(TCruzi tc: getEspecificNeighbors(TCruzi.class)){
+					if(hasSpace())
+						endocitarBy(tc);
+				}
+				
 			} break;
 			
 			case ACTIVE: {
@@ -166,25 +184,28 @@ public class Macrophage extends APC {
 					}
 				}
 				
+				for(TCruzi tc: getEspecificNeighbors(TCruzi.class)){
+					if(hasSpace())
+						endocitarBy(tc);
+				}
+				
 			} break;
 
 			case APOPTOSIS: {
-				super.apoptosis();
-				this.die();
+				apoptosis();
 			}break;
 		
 			case NECROSIS: {
 				if(this.previous_state != MacrophageStates.NECROSIS){
 					removeParasites();
 					releaseCitokine(CitokineNames.NECROTIC);
+					changeState(MacrophageStates.NECROSIS);
+				}else{
+					if(getTicks() % Global.getInstance().getIntegerParameter(EnvParameters.CYTOKINE_NECROTIC_INTERVAL_RELEASES) == 0 && numReleasesCytokineNecrotic > 0){
+						releaseCitokine(CitokineNames.NECROTIC);
+						numReleasesCytokineNecrotic--;
+					}
 				}
-				
-				//TODO parametrizar taxa de liberacao da citocina NECROTIC por celula morta
-				if(getTicks() % 20 == 0){
-					releaseCitokine(CitokineNames.NECROTIC);
-				}
-				
-				changeState(MacrophageStates.NECROSIS);
 			}break;
 		}
 	}
@@ -217,6 +238,7 @@ public class Macrophage extends APC {
 	public void clean() {
 		removeParasites();
 		zone.removeAgent(this);
+		numMacrophages--;
 	}
 	
 	/**
@@ -235,10 +257,9 @@ public class Macrophage extends APC {
 		if(this.tcruzis != null){
 			int numTcruzi = this.getTCruzis().size();
 			int numTCruziBreach = Global.getInstance().getIntegerParameter(EnvParameters.TCRUZI_NUM_BREACH);
-			for(int i = 0; i<this.tcruzis.size();i++){
-				numTcruzi = this.getTCruzis().size();
-				if(numTcruzi < numTCruziBreach){
-					this.tcruzis.get(i).multiplica(this);
+			for(int i = 0; i<numTcruzi;i++){
+				if(this.getTCruzis().size() < numTCruziBreach){
+					this.getTCruzis().get(i).multiplica(this);
 				}else{
 					necrosis();
 					break;
@@ -254,10 +275,5 @@ public class Macrophage extends APC {
 	private void changeState(MacrophageStates newstate){
 		previous_state = state;
 		state = newstate;
-	}
-	
-	public int getTotalMacrophageInTissue(){
-		int x = ((Tissue) Environment.getEnvironment(ZoneNames.Tissue)).getObjects(Macrophage.class).size();
-		return x;
 	}
 }

@@ -118,8 +118,7 @@ public class Global extends DefaultContext<Agent>  implements ContextBuilder<Obj
 		/*add Tcruzis*/
 		if(ticks == 5){
 			Tissue ts = (Tissue) Environment.getEnvironment(ZoneNames.Tissue);
-			
-			for(int i = 0; i < 50; i++){
+			for(int i = 0; i < Global.getInstance().getIntegerParameter(EnvParameters.TCRUZI_INOCULUM); i++){
 				int vx = RandomUtils.getRandomFromTo(0, ts.getWidth());
 				int vy = RandomUtils.getRandomFromTo(0, ts.getHeight());
 				ts.addAgent(new TCruzi(ts, vx, vy));
@@ -127,10 +126,10 @@ public class Global extends DefaultContext<Agent>  implements ContextBuilder<Obj
 		}
 		
 		/*add Macrophages*/
-		if(ticks == 10){
+		if(ticks == 1){
 			Tissue ts = (Tissue) Environment.getEnvironment(ZoneNames.Tissue);
 			
-			for(int i = 0; i < 50; i++){
+			for(int i = 0; i < Global.getInstance().getIntegerParameter(EnvParameters.MACROPHAGE_NUM_INIT_TISSUE); i++){
 				int vx = RandomUtils.getRandomFromTo(0, ts.getWidth());
 				int vy = RandomUtils.getRandomFromTo(0, ts.getHeight());
 				ts.addAgent(new Macrophage(ts, vx, vy));
