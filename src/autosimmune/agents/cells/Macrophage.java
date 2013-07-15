@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import repast.simphony.annotate.AgentAnnot;
 import repast.simphony.engine.schedule.ScheduledMethod;
+import repast.simphony.random.RandomHelper;
 import autosimmune.agents.Antibody;
 import autosimmune.agents.pathogens.TCruzi;
 import autosimmune.agents.pathogens.Virus;
@@ -26,9 +27,6 @@ import autosimmune.utils.Pattern;
  */
 @AgentAnnot(displayName = "Macrophage Cell")
 public class Macrophage extends APC {
-	/** Número de Macrophage */
-	protected static Integer numMacrophages = 0;
-
 	/** Representação dos estados internos da célula */
 	private MacrophageStates state;
 	
@@ -50,7 +48,6 @@ public class Macrophage extends APC {
 	 */
 	public Macrophage(Environment z, int x, int y) {
 		super(z, x, y, new Pattern(Global.getInstance().getStringParameter(EnvParameters.MACROPHAGE_SELF_PATTERN)));
-		numMacrophages++;
 		initiateParameters();
 	}
 	
@@ -60,14 +57,8 @@ public class Macrophage extends APC {
 		this.lifetime = Global.getInstance().getIntegerParameter(EnvParameters.MACROPHAGE_LIFETIME);
 		this.mk1duration = Global.getInstance().getIntegerParameter(EnvParameters.MACROPHAGE_MK1_DURATION);
 		this.tcruzis = new ArrayList<TCruzi>();
+		this.tcruzisEndocyted = new ArrayList<TCruzi>();
 		this.numReleasesCytokineNecrotic = Global.getInstance().getIntegerParameter(EnvParameters.CYTOKINE_NECROTIC_NUM_RELEASES);
-	}
-	
-	/**
-	 * Retorna o numero de instancias
-	 */
-	public static int getNumMacrophage(){
-		return numMacrophages;
 	}
 	
 	/**
@@ -75,10 +66,16 @@ public class Macrophage extends APC {
 	 */
 	@ScheduledMethod(start = 0, interval = 1)
 	public void step(){
-		
+		//tick();
 		if (getTicks() > lifetime){
 			changeState(MacrophageStates.APOPTOSIS);
 		}
+		
+		/*atualizar posicao de parasitas*/
+		updatePositionParasites();
+		
+		/*Fagocitose dos parasitas endocitados*/
+		phagocyte();
 		
 		/*reproducao dos parasitas*/
 		reproducingParasites();
@@ -100,7 +97,9 @@ public class Macrophage extends APC {
 			
 			case INFLAMATORY: {
 				
-				if(getCitokineValue(CitokineNames.NECROTIC) > 0){
+				if(RandomHelper.nextIntFromTo(0, 100) <= 75)
+					randomWalk();
+				else if(getCitokineValue(CitokineNames.NECROTIC) > 0){
 					followCitokineByGradient(true, CitokineNames.NECROTIC);
 				} else if (getCitokineValue(CitokineNames.PK1) > 10){
 					followCitokineByGradient(true, CitokineNames.PK1);
@@ -136,15 +135,16 @@ public class Macrophage extends APC {
 				}
 				
 				for(TCruzi tc: getEspecificNeighbors(TCruzi.class)){
-					if(hasSpace())
-						endocitarBy(tc);
+					endocitarBy(tc);
 				}
 				
 			} break;
 			
 			case ACTIVE: {
 				
-				if(getCitokineValue(CitokineNames.NECROTIC) > 0){
+				if(RandomHelper.nextIntFromTo(0, 100) <= 75)
+					randomWalk();
+				else if(getCitokineValue(CitokineNames.NECROTIC) > 0.0000000000001){
 					followCitokineByGradient(true, CitokineNames.NECROTIC);
 				} else if (getCitokineValue(CitokineNames.PK1) > 10){
 					followCitokineByGradient(true, CitokineNames.PK1);
@@ -185,8 +185,7 @@ public class Macrophage extends APC {
 				}
 				
 				for(TCruzi tc: getEspecificNeighbors(TCruzi.class)){
-					if(hasSpace())
-						endocitarBy(tc);
+					endocitarBy(tc);
 				}
 				
 			} break;
@@ -201,7 +200,8 @@ public class Macrophage extends APC {
 					releaseCitokine(CitokineNames.NECROTIC);
 					changeState(MacrophageStates.NECROSIS);
 				}else{
-					if(getTicks() % Global.getInstance().getIntegerParameter(EnvParameters.CYTOKINE_NECROTIC_INTERVAL_RELEASES) == 0 && numReleasesCytokineNecrotic > 0){
+					//if(getTicks() % Global.getInstance().getIntegerParameter(EnvParameters.CYTOKINE_NECROTIC_INTERVAL_RELEASES) == 0 && numReleasesCytokineNecrotic > 0){
+					if(numReleasesCytokineNecrotic > 0){	
 						releaseCitokine(CitokineNames.NECROTIC);
 						numReleasesCytokineNecrotic--;
 					}
@@ -238,7 +238,6 @@ public class Macrophage extends APC {
 	public void clean() {
 		removeParasites();
 		zone.removeAgent(this);
-		numMacrophages--;
 	}
 	
 	/**
@@ -250,30 +249,15 @@ public class Macrophage extends APC {
 	}
 	
 	/**
-	 * Chama a funcao de reproducao dos parasitas
-	 */
-	public void reproducingParasites(){
-		/*tcruzi*/
-		if(this.tcruzis != null){
-			int numTcruzi = this.getTCruzis().size();
-			int numTCruziBreach = Global.getInstance().getIntegerParameter(EnvParameters.TCRUZI_NUM_BREACH);
-			for(int i = 0; i<numTcruzi;i++){
-				if(this.getTCruzis().size() < numTCruziBreach){
-					this.getTCruzis().get(i).multiplica(this);
-				}else{
-					necrosis();
-					break;
-				}
-			}
-		}
-	}
-	
-	/**
 	 * Altera o estado atual da celula
 	 * @param newstate
 	 */
-	private void changeState(MacrophageStates newstate){
+	public void changeState(MacrophageStates newstate){
 		previous_state = state;
 		state = newstate;
+	}
+	
+	public MacrophageStates getState(){
+		return state;
 	}
 }

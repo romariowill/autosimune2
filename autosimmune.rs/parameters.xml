@@ -6,10 +6,10 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
-				<parameter name="tcruziVirulency" displayName="TCruzi Virulency (0-100)" type="java.lang.Integer" 
-						defaultValue="20" 
+				<parameter name="tcruziVirulency" displayName="TCruzi Virulency [0-100]" type="java.lang.Double" 
+						defaultValue="0.1" 
 						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
 				<parameter name="randomSeed" displayName="Default Random Seed" type="int" 
@@ -138,10 +138,22 @@
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
+				<parameter name="tcruziInflamatoryEscapeFactor" displayName="Tcruzi Inflamatory Escape Factor [0-100]" type="java.lang.Double" 
+						defaultValue="95.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
 				<parameter name="dendriticCellsCount" displayName="Dendritic Cells Count" type="java.lang.Integer" 
-						defaultValue="200" 
+						defaultValue="0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="tcruziActiveEscapeFactor" displayName="Tcruzi Active Escape Factor [0-100]" type="java.lang.Double" 
+						defaultValue="1.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
 				<parameter name="nKSelfPattern" displayName="NK Self Pattern" type="java.lang.String" 
@@ -163,7 +175,7 @@
 									
 		/>
 				<parameter name="lymphnodeWidth" displayName="Lymphnode Width" type="java.lang.Integer" 
-						defaultValue="50" 
+						defaultValue="1" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
@@ -181,7 +193,7 @@
 									
 		/>
 				<parameter name="cytokineNecroticIntervalReleases" displayName="Cytokine Necrotic Interval Releases" type="java.lang.Integer" 
-						defaultValue="20" 
+						defaultValue="5" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
@@ -271,7 +283,7 @@
 									
 		/>
 				<parameter name="tcruziInoculum" displayName="TCruzi Inoculum" type="java.lang.Integer" 
-						defaultValue="100" 
+						defaultValue="300" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
@@ -307,13 +319,19 @@
 									
 		/>
 				<parameter name="tcruziNumBreach" displayName="TCruzi Num Breach" type="java.lang.Integer" 
-						defaultValue="40" 
+						defaultValue="500" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="macrophageNumInitTissue" displayName="Macrophage Num Init Tissue" type="java.lang.Integer" 
+						defaultValue="300" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
 				<parameter name="lymphnodeHeight" displayName="Lymphnode Height" type="java.lang.Integer" 
-						defaultValue="50" 
+						defaultValue="1" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
@@ -361,7 +379,7 @@
 									
 		/>
 				<parameter name="cytokineNecroticNumReleases" displayName="Cytokine Necrotic Num Releases" type="java.lang.Integer" 
-						defaultValue="2" 
+						defaultValue="5" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
@@ -386,6 +404,12 @@
 		/>
 				<parameter name="nKLifetime" displayName="NK Lifetime" type="java.lang.Integer" 
 						defaultValue="30" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="tcruziTimeMultiply" displayName="Tcruzi Time Multiply [1-)" type="java.lang.Integer" 
+						defaultValue="10" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									

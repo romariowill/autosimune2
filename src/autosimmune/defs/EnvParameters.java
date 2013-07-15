@@ -53,7 +53,8 @@ public enum EnvParameters {
 	TCRUZI_TIME_MULTIPLY ("tcruziTimeMultiply"),
 	TCRUZI_NUM_BREACH ("tcruziNumBreach"),
 	TCRUZI_INOCULUM ("tcruziInoculum"),
-	TCRUZI_ESCAPE_FACTOR ("tcruziEscapeFactor"),
+	TCRUZI_INFLAMATORY_ESCAPE_FACTOR ("tcruziInflamatoryEscapeFactor"),
+	TCRUZI_ACTIVE_ESCAPE_FACTOR ("tcruziActiveEscapeFactor"),
 	
 	/* Parametros das celulas PC */
 	PC_SELF_PATTERN ("pcSelfPattern"),
