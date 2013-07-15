@@ -1,6 +1,7 @@
 package autosimmune.agents.cells;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import repast.simphony.random.RandomHelper;
 
@@ -9,6 +10,7 @@ import autosimmune.agents.pathogens.TCruzi;
 import autosimmune.agents.pathogens.Virus;
 import autosimmune.defs.CitokineNames;
 import autosimmune.defs.EnvParameters;
+import autosimmune.defs.MacrophageStates;
 import autosimmune.env.Environment;
 import autosimmune.env.Global;
 import autosimmune.utils.Pattern;
@@ -242,12 +244,72 @@ abstract public class Cell extends Antigen {
 	}
 	
 	/**
+	 * Chama a funcao de reproducao dos parasitas
+	 */
+	public void reproducingParasites(){
+		/*tcruzi*/
+		if(tcruzis != null){
+			int numTcruzi = this.getTCruzis().size();
+			int numTCruziBreach = Global.getInstance().getIntegerParameter(EnvParameters.TCRUZI_NUM_BREACH);
+			for(int i = 0; i<numTcruzi;i++){
+				if(tcruzis.size() < numTCruziBreach){
+					tcruzis.get(i).multiplica(this);
+				}else{
+					necrosis();
+					break;
+				}
+			}
+		}
+	}
+	
+	/**
 	 * Endocitar tcruzi
 	 * @param tcruzi
 	 */
 	public boolean endocitarBy(TCruzi tc){
-		//todo verificar se pode endocitar
-		tc.endocit(this);
+		if(tc.getHost() == null && hasSpace())
+			tc.endocit(this);
 		return true;
+	}
+	
+	public void phagocyte(){
+		if (tcruzisEndocyted != null){
+			if(this.getClass()==Macrophage.class){
+				if(((Macrophage)this).getState() == MacrophageStates.INFLAMATORY){
+					for(Iterator<TCruzi> interator = tcruzisEndocyted.iterator(); interator.hasNext();){
+						TCruzi t  = interator.next();
+						interator.remove();
+						if(RandomHelper.nextDoubleFromTo(0, 100) <= Global.getInstance().getFloatParameter(EnvParameters.TCRUZI_INFLAMATORY_ESCAPE_FACTOR)){
+							tcruzis.add(t);
+						}else{
+							((Macrophage)this).changeState(MacrophageStates.ACTIVE);
+							t.neutralize(true);
+						}
+					}
+				}else if(((Macrophage)this).getState() == MacrophageStates.ACTIVE){
+					for(Iterator<TCruzi> interator = tcruzisEndocyted.iterator(); interator.hasNext();){
+						TCruzi t  = interator.next();
+						interator.remove();
+						if(RandomHelper.nextDoubleFromTo(0, 100) <= Global.getInstance().getFloatParameter(EnvParameters.TCRUZI_ACTIVE_ESCAPE_FACTOR)){
+							tcruzis.add(t);
+						}else{
+							((Macrophage)this).changeState(MacrophageStates.ACTIVE);
+							t.neutralize(true);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	public void updatePositionParasites(){
+		if(this.tcruzis != null){
+			for(TCruzi t: this.tcruzis)
+				t.updatePositionToHost();
+		}
+		if(this.tcruzisEndocyted != null){
+			for(TCruzi t: this.tcruzisEndocyted)
+				t.updatePositionToHost();
+		}
 	}
 }

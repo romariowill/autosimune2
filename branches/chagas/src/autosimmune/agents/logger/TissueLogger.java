@@ -13,6 +13,7 @@ import autosimmune.agents.cells.ThCell;
 import autosimmune.agents.pathogens.TCruzi;
 import autosimmune.agents.pathogens.Virus;
 import autosimmune.defs.EnvParameters;
+import autosimmune.defs.MacrophageStates;
 import autosimmune.defs.PCStates;
 import autosimmune.defs.ZoneNames;
 import autosimmune.env.Environment;
@@ -42,7 +43,9 @@ public class TissueLogger extends Agent {
 	}
 	
 	public int getTCruziCount(){
-		return this.zone.getObjects(TCruzi.class).size();
+		int x = this.zone.getObjects(TCruzi.class).size();
+		//System.out.println(x);
+		return x;
 	}
 	
 	public int getMacrophageCount(){
@@ -53,6 +56,24 @@ public class TissueLogger extends Agent {
 		int cont = 0;
 		for(Agent mc: this.zone.getObjects(Macrophage.class)){
 			if(!((Macrophage)mc).isDead())
+				cont++;
+		}
+		return cont;
+	}
+	
+	public int getTotalMacrophageActive(){
+		int cont = 0;
+		for(Agent mc: this.zone.getObjects(Macrophage.class)){
+			if(((Macrophage)mc).getState()==MacrophageStates.ACTIVE)
+				cont++;
+		}
+		return cont;
+	}
+	
+	public int getTotalMacrophageInflamatory(){
+		int cont = 0;
+		for(Agent mc: this.zone.getObjects(Macrophage.class)){
+			if(((Macrophage)mc).getState()==MacrophageStates.INFLAMATORY)
 				cont++;
 		}
 		return cont;

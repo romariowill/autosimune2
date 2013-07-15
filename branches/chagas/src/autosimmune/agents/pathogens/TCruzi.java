@@ -123,6 +123,7 @@ public class TCruzi extends Antigen{
 	 */
 	public void endocit(Cell c) {
 		this.host = c;
+		c.getTCruzisEndocyted().add(this);
 	}
 	
 	/**
@@ -147,9 +148,6 @@ public class TCruzi extends Antigen{
 	public void multiplica(Cell cell) {
 		if (host != null && host == cell){
 			numCallMult++;
-			int x = cell.getX();
-			int y = cell.getY();
-			this.moveTo(x, y);
 			int tcruziTimeMultiply = Global.getInstance().getIntegerParameter(EnvParameters.TCRUZI_TIME_MULTIPLY);
 			if(numCallMult%tcruziTimeMultiply == 0){
 				TCruzi tcruzi = new TCruzi(this.zone, this.getX(), this.getY());
@@ -171,12 +169,12 @@ public class TCruzi extends Antigen{
 	
 	public boolean neutralize(boolean force){
 		if(this.host == null){
-			this.die();
+			zone.removeAgent(this);
 			return true;
 		} else if (force) {
 			this.removeHost(this.host);
 			this.host = null;
-			this.die();
+			zone.removeAgent(this);
 			return true;
 		} else {
 			return false;
@@ -189,5 +187,24 @@ public class TCruzi extends Antigen{
 	 */
 	public int getNumMult(){
 		return numMult;
+	}
+	
+	/**
+	 * Funcao que retorna referencia a celula infectada ou que endocitou
+	 * @return Cell
+	 */
+	public Cell getHost(){
+		return host;
+	}
+	
+	/**
+	 * Atualiza a posicao do tcruzi para a posicao do seu hospedeiro
+	 */
+	public void updatePositionToHost(){
+		if (host != null){
+			int x = host.getX();
+			int y = host.getY();
+			this.moveTo(x, y);
+		}
 	}
 }

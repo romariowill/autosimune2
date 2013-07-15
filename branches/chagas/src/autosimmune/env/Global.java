@@ -116,12 +116,12 @@ public class Global extends DefaultContext<Agent>  implements ContextBuilder<Obj
 		}*/
 		
 		/*add Tcruzis*/
-		if(ticks == 5){
+		if(ticks == 1){
 			Tissue ts = (Tissue) Environment.getEnvironment(ZoneNames.Tissue);
+			int vx = RandomUtils.getRandomFromTo(0, ts.getWidth());
+			int vy = RandomUtils.getRandomFromTo(0, ts.getHeight());
 			for(int i = 0; i < Global.getInstance().getIntegerParameter(EnvParameters.TCRUZI_INOCULUM); i++){
-				int vx = RandomUtils.getRandomFromTo(0, ts.getWidth());
-				int vy = RandomUtils.getRandomFromTo(0, ts.getHeight());
-				ts.addAgent(new TCruzi(ts, vx, vy));
+				ts.addAgent(new TCruzi(ts, 75, 75));
 			}
 		}
 		

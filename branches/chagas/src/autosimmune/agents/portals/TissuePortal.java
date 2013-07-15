@@ -8,6 +8,7 @@ import autosimmune.agents.cells.NK;
 import autosimmune.agents.cells.PC;
 import autosimmune.defs.CitokineNames;
 import autosimmune.defs.EnvParameters;
+import autosimmune.defs.MacrophageStates;
 import autosimmune.defs.PCStates;
 import autosimmune.defs.PortalDirections;
 import autosimmune.defs.TissuePortalStates;
@@ -96,6 +97,7 @@ public class TissuePortal extends Portal {
 				if (streesCitokine > Global.getInstance().getFloatParameter(EnvParameters.PORTAL_PK1_THRESHOLD)){
 					if (sendMacrophageNumber > 0){
 						Macrophage m0 = new Macrophage(zone, getX(), getY());
+						//m0.changeState(MacrophageStates.ACTIVE);
 						zone.addAgent(m0);
 						sendMacrophageNumber--;
 					}
