@@ -64,10 +64,10 @@ public class Lymphnode extends Environment {
 		//calcula a porcentagem de cada celula, de acordo com o numero maximo de celulas
 		//TODO parametrizar porcentagens de ThCell, CTL e BCell
 		//Checar porcentagens
-		numThCells = (int) Math.round(numCells * Double.parseDouble(Global.getInstance().getStringParameter(EnvParameters.THCELL_PERCENTAGE))/100); //0.25
-		numCTLCells = (int) Math.round(numCells * Double.parseDouble(Global.getInstance().getStringParameter(EnvParameters.CLTCELL_PERCENTAGE))/100); //0.15
-	    numBCells = (int) Math.round(numCells * Double.parseDouble(Global.getInstance().getStringParameter(EnvParameters.BCELL_PERCENTAGE))/100); //0.6
-	    numTRegCells  = (int) Math.round(numCells * Double.parseDouble(Global.getInstance().getStringParameter(EnvParameters.TREGCELL_PERCENTAGE))/100); //0.125
+		numThCells = (int) Math.round(numCells * Double.parseDouble(Global.getInstance().getStringParameter(EnvParameters.THCELL_PERCENTAGE))/100); //0.5
+		numCTLCells = (int) Math.round(numCells * Double.parseDouble(Global.getInstance().getStringParameter(EnvParameters.CLTCELL_PERCENTAGE))/100); //0.2
+	    numBCells = (int) Math.round(numCells * Double.parseDouble(Global.getInstance().getStringParameter(EnvParameters.BCELL_PERCENTAGE))/100); //0.25
+	    numTRegCells  = (int) Math.round(numCells * Double.parseDouble(Global.getInstance().getStringParameter(EnvParameters.TREGCELL_PERCENTAGE))/100); //0.05
 
 		//cria as celulas Th
 		for(int i = 0; i < numThCells; i++){

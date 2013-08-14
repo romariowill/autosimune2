@@ -103,7 +103,7 @@ public class Global extends DefaultContext<Agent>  implements ContextBuilder<Obj
 		
 		
 		
-		if(ticks%100 == 0){
+		if(ticks == 10){
 			Tissue ts = (Tissue) Environment.getEnvironment(ZoneNames.Tissue);
 			int vx = RandomUtils.getRandomFromTo(0, ts.getWidth());
 			int vy = RandomUtils.getRandomFromTo(0, ts.getHeight());

@@ -64,7 +64,7 @@ public class BCell extends APC implements Lymphocyte {
 	}
 	*/
 	
-	@ScheduledMethod(start = 40, interval = 1)
+	@ScheduledMethod(start = 0, interval = 1)
 	public void step() {
 		
 		switch(state){
