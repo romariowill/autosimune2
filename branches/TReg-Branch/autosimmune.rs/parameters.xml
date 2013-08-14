@@ -31,7 +31,7 @@
 									
 		/>
 				<parameter name="tregCellPercentage" displayName="TReg Cell Percentage" type="java.lang.String" 
-						defaultValue="1.25" 
+						defaultValue="5" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
 									
@@ -55,7 +55,7 @@
 									
 		/>
 				<parameter name="thCellPercentage" displayName="Th Cell Percentage" type="java.lang.String" 
-						defaultValue="25" 
+						defaultValue="50" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
 									
@@ -181,7 +181,7 @@
 									
 		/>
 				<parameter name="lymphnodeWidth" displayName="Lymphnode Width" type="java.lang.Integer" 
-						defaultValue="200" 
+						defaultValue="50" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
@@ -253,7 +253,7 @@
 									
 		/>
 				<parameter name="tregLifetime" displayName="TReg Lifetime" type="int" 
-						defaultValue="500" 
+						defaultValue="50" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
@@ -265,7 +265,7 @@
 									
 		/>
 				<parameter name="bCellPercentage" displayName="B Cell Percentage" type="java.lang.String" 
-						defaultValue="60" 
+						defaultValue="25" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
 									
@@ -325,7 +325,7 @@
 									
 		/>
 				<parameter name="lymphnodeHeight" displayName="Lymphnode Height" type="java.lang.Integer" 
-						defaultValue="200" 
+						defaultValue="50" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									

@@ -99,7 +99,7 @@ public class CTL extends Cell implements Lymphocyte {
 	}
 
 
-	@ScheduledMethod(start = 60, interval = 1)
+	@ScheduledMethod(start = 0, interval = 1)
 	public void step() {
 		
 		tick();

@@ -88,7 +88,7 @@ public class TReg extends Cell implements Lymphocyte{
 	/**
 	 * Método que executa o passo do linfócito a cada tick
 	 */
-	@ScheduledMethod(start = 40, interval = 1)
+	@ScheduledMethod(start = 0, interval = 1)
 	public void step(){
 
 		tick();
